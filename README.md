@@ -31,7 +31,7 @@ All links to these files are relative, so the same files work on GitHub Pages an
   Events: `generate_lead` (form sent), `contact_click` (whatsapp / phone / email).
   Add a cookie consent banner before switching it on (promised in the Privacy Statement for EU/UK visitors).
 - **Contact form:** Web3Forms (https://web3forms.com, account fuzentra.lk@gmail.com, form "fuzentra-web-contact").
-  The access key is in `index.html` (`access_key`); it is public by design. Enquiries go to the email set on that form in Web3Forms.
+  The access key is in `index.html` (`access_key`); it is public by design. Enquiries are delivered to hello@fuzentra.com (set on that form in Web3Forms).
   If Web3Forms domain restriction is turned on, allow both `fuzentra.com` and `fuzentra.github.io`.
 - **WhatsApp:** number 94766841742 in the floating button link.
 
