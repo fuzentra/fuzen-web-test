@@ -563,7 +563,7 @@
         <div><label for="f-company" class="field-label">Company</label><input id="f-company" name="Company" type="text" autocomplete="organization" class="field"></div>
         <div class="sm:col-span-2 lg:col-span-4"><label for="form-message" class="field-label">How can we help?</label><textarea id="form-message" name="Message" rows="3" required class="field block resize-none lg:h-24"></textarea></div>
         <div class="sm:col-span-2 lg:col-span-1 flex items-end">
-          <button type="submit" id="submit-btn" class="btn-primary w-full lg:h-24 disabled:opacity-60 disabled:cursor-wait">
+          <button type="submit" id="submit-btn" class="btn-primary w-full lg:h-24 px-5! whitespace-nowrap disabled:opacity-60 disabled:cursor-wait">
             <span id="submit-text">Send Message</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
@@ -825,7 +825,8 @@
       form.classList.add('hidden');
       document.getElementById('form-success').classList.remove('hidden');
       track('generate_lead', { method: 'contact_form' });
-    } catch (_) {
+    } catch (e) {
+      console.warn('Form not sent:', e.message);
       err.classList.remove('hidden');
     } finally {
       btn.disabled = false; btnText.textContent = 'Send Message';
