@@ -280,38 +280,40 @@
     <div class="text-center mb-10">
       <span class="eyebrow !text-brand">Quick Self-Check</span>
       <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">Where Should Your Transformation Start?</h2>
-      <p class="text-slate-300 mt-2 text-lg">Two quick questions to point you to the right conversation.</p>
+      <p class="text-slate-300 mt-2 text-lg">Four quick questions to point you to the right conversation.</p>
     </div>
 
-    <div class="card p-6 sm:p-10">
-      <div id="wiz-step-1" class="space-y-6">
-        <h3 class="font-display text-xl font-bold text-ink">1. What is your organisation's top priority right now?</h3>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <button onclick="setGoal('setting a clear direction')" class="choice-btn">Setting a clear direction</button>
-          <button onclick="setGoal('growing revenue')" class="choice-btn">Growing revenue</button>
-          <button onclick="setGoal('improving efficiency')" class="choice-btn">Improving efficiency</button>
-          <button onclick="setGoal('modernising technology')" class="choice-btn">Modernising technology</button>
+    <div class="card p-6 sm:p-10" id="sc-card">
+      <!-- Questions -->
+      <div id="sc-quiz">
+        <div class="flex items-center justify-between gap-4 text-sm font-semibold">
+          <span class="text-brand-deep" id="sc-step-label">Question 1 of 4</span>
+          <button type="button" id="sc-back" class="text-slate-500 hover:text-ink invisible">← Back</button>
         </div>
+        <div class="mt-3 h-1.5 rounded-full bg-mist overflow-hidden" aria-hidden="true"><div id="sc-progress" class="h-full bg-brand rounded-full transition-all duration-300" style="width:25%"></div></div>
+        <h3 id="sc-question" class="font-display text-xl sm:text-2xl font-bold text-ink mt-6" tabindex="-1"></h3>
+        <div id="sc-options" class="grid sm:grid-cols-2 gap-3 sm:gap-4 mt-5" role="group" aria-labelledby="sc-question"></div>
       </div>
 
-      <div id="wiz-step-2" class="space-y-6 hidden">
-        <h3 class="font-display text-xl font-bold text-ink">2. What is getting in the way?</h3>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <button onclick="setBlocker('unclear priorities or market position')" class="choice-btn">Unclear priorities or market position</button>
-          <button onclick="setBlocker('data we can\'t turn into decisions')" class="choice-btn">Data we can't turn into decisions</button>
-          <button onclick="setBlocker('manual, fragmented processes')" class="choice-btn">Manual, fragmented processes</button>
-          <button onclick="setBlocker('teams slow to adopt new ways of working')" class="choice-btn">Teams slow to adopt new ways of working</button>
+      <!-- Result -->
+      <div id="sc-result" class="hidden" aria-live="polite">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+          <img id="sc-icon" src="" alt="" width="64" height="64" class="w-16 h-16 rounded-[1.1rem] shadow-lg shadow-brand/25">
+          <div>
+            <p class="eyebrow">Your suggested starting point</p>
+            <h3 id="sc-service" class="font-display text-2xl sm:text-3xl font-extrabold text-ink mt-1"></h3>
+          </div>
         </div>
-      </div>
-
-      <div id="wiz-step-3" class="space-y-6 hidden text-center">
-        <div class="w-16 h-16 rounded-full bg-brand/15 text-brand-deep flex items-center justify-center mx-auto mb-4 text-2xl font-bold">✓</div>
-        <h3 class="font-display text-2xl font-bold text-ink">Your Suggested Starting Point</h3>
-        <p class="text-slate-700 max-w-lg mx-auto">For <span id="res-goal" class="text-brand-deep font-bold"></span> held back by <span id="res-blocker" class="text-brand-deep font-bold"></span>, a good place to begin is:</p>
-        <p id="res-services" class="font-display text-2xl font-bold text-ink"></p>
-        <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#contact" onclick="populateContactMessage()" class="btn-primary">Discuss This With Us</a>
-          <button onclick="resetWizard()" class="btn-secondary">Start Over</button>
+        <p id="sc-reason" class="text-slate-700 text-lg leading-relaxed mt-5"></p>
+        <p id="sc-also" class="hidden mt-3 text-slate-600"></p>
+        <div id="sc-ai" class="hidden mt-5 p-5 rounded-2xl bg-[#E8F5F3] border border-brand/20 text-slate-700 leading-relaxed"></div>
+        <details class="mt-6 group">
+          <summary class="cursor-pointer text-sm font-bold text-ink hover:text-brand-deep">Your answers</summary>
+          <ol id="sc-summary" class="mt-3 space-y-2 text-sm text-slate-600 list-decimal pl-5"></ol>
+        </details>
+        <div class="pt-6 mt-6 border-t border-line flex flex-col sm:flex-row gap-3">
+          <a href="#contact" id="sc-discuss" class="btn-primary">Discuss This With Us</a>
+          <button type="button" id="sc-restart" class="btn-secondary">Start Over</button>
         </div>
       </div>
     </div>
@@ -782,34 +784,98 @@
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
 
-  // Starting-point check
-  let goal = '', blocker = '';
-  const goalMap = {
-    'setting a clear direction': 'Strategy & Growth',
-    'growing revenue': 'Strategy & Growth',
-    'improving efficiency': 'Operational Excellence',
-    'modernising technology': 'Digital Transformation'
+  // Starting-point check: 4 questions, each answer scores one service
+  const SC_SERVICES = {
+    S: { name: 'Strategy & Growth', icon: 'assets/icon-strategy.png',
+         reason: 'Your answers point to direction first. Aligning leadership on clear priorities and a practical growth plan will make every other investment count.' },
+    O: { name: 'Operational Excellence', icon: 'assets/icon-operations.png',
+         reason: 'Your answers point to how work gets done. Fixing bottlenecks, workarounds and duplication will free up time, cost and quality quickly.' },
+    D: { name: 'Digital Transformation', icon: 'assets/icon-transformation.png',
+         reason: 'Your answers point to your systems and ways of working. Connecting platforms and bringing your teams along will unlock the next stage of growth.' },
+    A: { name: 'AI & Data Analytics', icon: 'assets/icon-analytics.png',
+         reason: 'Your answers point to your data. Turning it into trusted, timely insight - and putting practical AI to work - will sharpen every decision.' },
   };
-  const blockerMap = {
-    'unclear priorities or market position': 'Strategy & Growth',
-    "data we can't turn into decisions": 'AI & Data Analytics',
-    'manual, fragmented processes': 'Operational Excellence',
-    'teams slow to adopt new ways of working': 'Digital Transformation'
-  };
-  const recommended = () => [...new Set([goalMap[goal], blockerMap[blocker]])].join(' + ');
-  function show(step) { [1,2,3].forEach(n => document.getElementById('wiz-step-' + n).classList.toggle('hidden', n !== step)); }
-  function setGoal(g) { goal = g; show(2); }
-  function setBlocker(b) {
-    blocker = b; show(3);
-    document.getElementById('res-goal').textContent = goal;
-    document.getElementById('res-blocker').textContent = blocker;
-    document.getElementById('res-services').textContent = recommended();
+  const SC_QUESTIONS = [
+    { q: "What is your organisation's top priority for the next 12 months?", label: 'Top priority', options: [
+      ['S', 'Setting a clear direction and growth plan'], ['O', 'Improving efficiency and reducing cost'],
+      ['D', 'Modernising systems and ways of working'], ['A', 'Making better use of data and AI'] ] },
+    { q: 'What is getting in the way most?', label: 'Biggest blocker', options: [
+      ['S', 'Unclear priorities or market position'], ['O', 'Manual, fragmented or duplicated processes'],
+      ['D', "Legacy systems that don't talk to each other"], ['A', "Data we can't trust or turn into decisions"] ] },
+    { q: 'Which best describes where you are today?', label: 'Where we are today', options: [
+      ['S', "We're growing, but planning is mostly informal"], ['O', 'Things work, but rely on key people and workarounds'],
+      ['D', "We've started digitising, but tools and adoption are patchy"], ['A', 'Systems are in place, but insights still come from spreadsheets'] ] },
+    { q: 'What would success look like in 12 months?', label: 'Success in 12 months', options: [
+      ['S', 'A shared roadmap the leadership team is executing'], ['O', 'Faster turnaround, lower cost and fewer errors'],
+      ['D', 'Teams working on modern, connected platforms'], ['A', 'Leaders deciding with live dashboards and practical AI'] ] },
+  ];
+  const sc = { step: 0, answers: [] };
+  const $ = id => document.getElementById(id);
+
+  function scRender() {
+    const q = SC_QUESTIONS[sc.step];
+    $('sc-step-label').textContent = `Question ${sc.step + 1} of ${SC_QUESTIONS.length}`;
+    $('sc-progress').style.width = ((sc.step + 1) / SC_QUESTIONS.length * 100) + '%';
+    $('sc-back').classList.toggle('invisible', sc.step === 0);
+    $('sc-question').textContent = q.q;
+    $('sc-options').innerHTML = '';
+    q.options.forEach(([key, text], i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'choice-btn flex items-start gap-3' + (sc.answers[sc.step] === i ? ' border-brand bg-brand/10' : '');
+      b.innerHTML = `<span class="shrink-0 w-7 h-7 rounded-lg bg-mist border border-line text-xs font-bold text-brand-deep flex items-center justify-center">${'ABCD'[i]}</span><span class="pt-0.5"></span>`;
+      b.lastChild.textContent = text;
+      b.addEventListener('click', () => scAnswer(i));
+      $('sc-options').appendChild(b);
+    });
   }
-  function resetWizard() { goal = ''; blocker = ''; show(1); }
-  function populateContactMessage() {
-    document.getElementById('form-message').value =
-      `Hello fuzentra team, our priority is ${goal}, but we're held back by ${blocker}. I'd like to explore ${recommended()}.`;
+
+  function scAnswer(i) {
+    sc.answers[sc.step] = i;
+    if (sc.step < SC_QUESTIONS.length - 1) { sc.step++; scRender(); $('sc-question').focus({ preventScroll: true }); }
+    else scResult();
   }
+
+  function scScores() {
+    const score = { S: 0, O: 0, D: 0, A: 0 };
+    sc.answers.forEach((a, i) => { score[SC_QUESTIONS[i].options[a][0]]++; });
+    // Highest score wins; ties go to the earlier answer (priority, then blocker...)
+    const order = sc.answers.map((a, i) => SC_QUESTIONS[i].options[a][0]);
+    const ranked = Object.keys(score).filter(k => score[k] > 0)
+      .sort((x, y) => score[y] - score[x] || order.indexOf(x) - order.indexOf(y));
+    return { score, top: ranked[0], second: ranked[1] && score[ranked[0]] <= 2 ? ranked[1] : null };
+  }
+
+  function scResult() {
+    const { top, second } = scScores();
+    const s = SC_SERVICES[top];
+    $('sc-icon').src = s.icon; $('sc-service').textContent = s.name; $('sc-reason').textContent = s.reason;
+    $('sc-also').classList.toggle('hidden', !second);
+    if (second) $('sc-also').innerHTML = `Also worth exploring: <strong class="text-ink">${SC_SERVICES[second].name}</strong>.`;
+    $('sc-summary').innerHTML = '';
+    sc.answers.forEach((a, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="font-semibold text-ink">${SC_QUESTIONS[i].label}:</span> `;
+      li.append(SC_QUESTIONS[i].options[a][1]);
+      $('sc-summary').appendChild(li);
+    });
+    $('sc-quiz').classList.add('hidden'); $('sc-result').classList.remove('hidden');
+    track('self_check_complete', { service: s.name });
+  }
+
+  function scRestart() {
+    sc.step = 0; sc.answers = [];
+    $('sc-result').classList.add('hidden'); $('sc-quiz').classList.remove('hidden'); scRender();
+  }
+
+  $('sc-back').addEventListener('click', () => { if (sc.step > 0) { sc.step--; scRender(); } });
+  $('sc-restart').addEventListener('click', scRestart);
+  $('sc-discuss').addEventListener('click', () => {
+    const { top, second } = scScores();
+    const lines = sc.answers.map((a, i) => `- ${SC_QUESTIONS[i].label}: ${SC_QUESTIONS[i].options[a][1]}`);
+    $('form-message').value = `Hello fuzentra team, I completed the self-check on your website.\n${lines.join('\n')}\nSuggested starting point: ${SC_SERVICES[top].name}${second ? ' (also ' + SC_SERVICES[second].name + ')' : ''}.\nI'd like to discuss next steps.`;
+  });
+  scRender();
 
   // Phone: start with +94 and keep the expected format
   const phone = document.getElementById('f-phone');
