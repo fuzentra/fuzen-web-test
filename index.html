@@ -550,11 +550,12 @@
     </div>
 
     <div class="card p-6 sm:p-8">
-      <form id="contact-form" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5" onsubmit="handleFormSubmit(event)">
+      <form id="contact-form" action="https://formsubmit.co/hello@fuzentra.com" method="POST" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5" onsubmit="handleFormSubmit(event)">
         <!-- FormSubmit settings -->
         <input type="hidden" name="_subject" value="New message from fuzentra.com">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" id="form-next" value="https://fuzentra.com/?sent=1#contact">
         <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div><label for="f-first" class="field-label">First Name</label><input id="f-first" name="First name" type="text" autocomplete="given-name" required class="field"></div>
         <div><label for="f-last" class="field-label">Last Name</label><input id="f-last" name="Last name" type="text" autocomplete="family-name" required class="field"></div>
@@ -809,6 +810,17 @@
 
   // Form: sends via FormSubmit (https://formsubmit.co) to hello@fuzentra.com
   const FORM_ENDPOINT = 'https://formsubmit.co/ajax/hello@fuzentra.com';
+  // Where FormSubmit returns visitors after a standard (non-AJAX) submit
+  document.getElementById('form-next').value = location.origin + location.pathname + '?sent=1#contact';
+  function showSent() {
+    document.getElementById('contact-form').classList.add('hidden');
+    document.getElementById('form-success').classList.remove('hidden');
+  }
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    showSent();
+    history.replaceState(null, '', location.pathname + '#contact');
+  }
+
   async function handleFormSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contact-form');
@@ -818,12 +830,21 @@
     if (phone.value.trim() === '+94') phone.value = '';
     err.classList.add('hidden');
     btn.disabled = true; btnText.textContent = 'Sending…';
+    let res;
     try {
-      const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+      res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+    } catch (netErr) {
+      // The browser blocked the background request (e.g. Safari privacy settings):
+      // send the form the standard way instead. FormSubmit brings the visitor back with ?sent=1.
+      console.warn('Background send blocked, using standard submit:', netErr.message);
+      track('generate_lead', { method: 'contact_form' });
+      HTMLFormElement.prototype.submit.call(form);
+      return;
+    }
+    try {
       const data = await res.json().catch(() => ({ message: 'HTTP ' + res.status }));
       if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
-      form.classList.add('hidden');
-      document.getElementById('form-success').classList.remove('hidden');
+      showSent();
       track('generate_lead', { method: 'contact_form' });
     } catch (e) {
       console.warn('Form not sent:', e.message);
