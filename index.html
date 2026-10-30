@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fuzentra | Strategy, Growth, Process, Technology</title>
+
+<!-- SEO -->
+<link rel="canonical" href="https://fuzentra.com">
+<meta name="description" content="fuzentra - boutique business and technology consulting. Strategy, growth, process and technology for ambitious organisations in Sri Lanka and beyond.">
+<meta name="keywords" content="business consulting, technology advisory, business strategy, operational excellence, business process reengineering, digital transformation, AI and data analytics, Colombo, Sri Lanka">
+<meta name="author" content="fuzentra">
+<meta property="og:title" content="fuzentra | Strategy, Growth, Process, Technology">
+<meta property="og:description" content="fuzentra - boutique business and technology consulting. Strategy, growth, process and technology for ambitious organisations in Sri Lanka and beyond.">
+<meta property="og:image" content="https://fuzentra.com/og-image.jpg">
+<meta property="og:url" content="https://fuzentra.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="fuzentra | Strategy, Growth, Process, Technology">
+<meta name="twitter:description" content="fuzentra - boutique business and technology consulting. Strategy, growth, process and technology for ambitious organisations in Sri Lanka and beyond.">
+<meta name="twitter:image" content="https://fuzentra.com/og-image.jpg">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="fuzentra - Turning Vision into Measurable Impact">
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1A9E8F">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- Business details for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "fuzentra",
+  "legalName": "fuzentra (Pvt) Ltd",
+  "url": "https://fuzentra.com",
+  "logo": "https://fuzentra.com/assets/fuzentra-logo.png",
+  "image": "https://fuzentra.com/og-image.jpg",
+  "description": "Boutique business and technology consulting - strategy, growth, process and technology for ambitious organisations in Sri Lanka and beyond.",
+  "email": "hello@fuzentra.com",
+  "telephone": "+94766841742",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "17/2, Shrubbery Gardens",
+    "addressLocality": "Colombo 4",
+    "addressCountry": "LK"
+  },
+  "areaServed": [
+    "Sri Lanka",
+    "Maldives",
+    "South Asia"
+  ],
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Feroz Ahamed",
+      "jobTitle": "Co-Founder & Director"
+    },
+    {
+      "@type": "Person",
+      "name": "Zahara Ansary",
+      "jobTitle": "Co-Founder & Director"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Consulting services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Strategy & Growth"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Operational Excellence"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Digital Transformation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI & Data Analytics"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- Analytics (Google Analytics 4). Paste your Measurement ID to turn it on, e.g. 'G-ABC123XYZ'. -->
+<script>
+  window.GA_ID = '';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  if (window.GA_ID) {
+    const s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID; document.head.appendChild(s);
+    gtag('js', new Date()); gtag('config', window.GA_ID);
+  }
+  window.track = (name, params) => { if (window.GA_ID) gtag('event', name, params || {}); };
+</script>
+
+<!-- Built with Tailwind CLI: npm run build -->
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- NAVIGATION -->
+<nav class="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-md border-b border-line">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#hero" aria-label="fuzentra home">
+      <img src="assets/fuzentra-logo.png" alt="fuzentra." class="h-10 md:h-12 w-auto">
+    </a>
+    <div class="hidden lg:flex items-center gap-6 xl:gap-10">
+      <a href="#services" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">WHAT WE DO</a>
+      <a href="#approach" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">HOW WE ENGAGE</a>
+      <a href="#about" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">WHO WE ARE</a>
+            <a href="#insights" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">INSIGHTS</a>
+      <a href="#contact" class="px-5 py-3 xl:px-6 xl:py-3.5 bg-brand text-ink text-[0.8125rem] xl:text-sm font-extrabold tracking-wider rounded-xl hover:shadow-lg hover:shadow-brand/30 transition">START A CONVERSATION</a>
+    </div>
+    <button id="menu-btn" class="lg:hidden p-2 text-ink" aria-label="Open menu" aria-expanded="false">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-line px-6 py-4 space-y-4 bg-white">
+    <a href="#services" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">WHAT WE DO</a>
+    <a href="#approach" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">HOW WE ENGAGE</a>
+    <a href="#about" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">WHO WE ARE</a>
+        <a href="#insights" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">INSIGHTS</a>
+    <a href="#contact" class="block text-center px-5 py-3 bg-brand text-ink text-sm font-bold tracking-widest rounded-xl">START A CONVERSATION</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="relative pt-24 pb-10 md:pt-28 md:pb-14 overflow-hidden bg-white">
+  <div aria-hidden="true" class="hero-dots absolute inset-0"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute -top-48 -right-40 w-[42rem] h-[42rem] rounded-full bg-brand/30 blur-3xl"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute -bottom-40 -left-32 w-[28rem] h-[28rem] rounded-full bg-brand/15 blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 xl:gap-14 items-center">
+
+    <div class="space-y-5 animate-fade-in-up">
+      <h1 class="font-display text-[2.25rem] sm:text-5xl lg:text-[2.9rem] xl:text-[3.5rem] font-extrabold tracking-tight leading-[1.08] text-ink text-balance max-w-xl">
+        Turning Vision into <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-deep">Measurable Impact</span>
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg xl:text-xl max-w-xl leading-relaxed">
+        We partner with ambitious organisations to cut through complexity, strengthen their value chains and grow sustainably - through clear strategy and the right technology.
+      </p>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <a href="#contact" class="btn-primary">
+          Start a Conversation
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="#services" class="text-sm font-bold text-ink hover:text-brand-deep transition">See what we do →</a>
+      </div>
+
+    </div>
+
+    <!-- What every engagement is built on -->
+    <div>
+      <div class="relative rounded-3xl bg-ink p-5 sm:p-6 shadow-2xl shadow-ink/30 ring-1 ring-white/5">
+        <div class="absolute -top-3.5 right-6 bg-brand text-ink font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider">Our Principles</div>
+        <h2 class="font-display text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">What Every Engagement Is Built On</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="px-4 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand/60 transition">
+            <span class="block w-5 h-1 rounded-full bg-brand mb-2"></span>
+            <p class="font-display text-lg font-bold text-white leading-snug">Innovation First</p>
+            <p class="text-[0.9375rem] text-slate-300 mt-1 leading-relaxed">Fresh thinking that challenges convention - applied where it makes a real difference.</p>
+          </div>
+          <div class="px-4 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand/60 transition">
+            <span class="block w-5 h-1 rounded-full bg-brand mb-2"></span>
+            <p class="font-display text-lg font-bold text-white leading-snug">Client Partnership</p>
+            <p class="text-[0.9375rem] text-slate-300 mt-1 leading-relaxed">We work alongside your team, around shared goals and long-term success.</p>
+          </div>
+          <div class="px-4 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand/60 transition">
+            <span class="block w-5 h-1 rounded-full bg-brand mb-2"></span>
+            <p class="font-display text-lg font-bold text-white leading-snug">Outcome Focused</p>
+            <p class="text-[0.9375rem] text-slate-300 mt-1 leading-relaxed">Clear goals agreed up front, disciplined execution and data-driven decisions to reach them.</p>
+          </div>
+          <div class="px-4 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand/60 transition">
+            <span class="block w-5 h-1 rounded-full bg-brand mb-2"></span>
+            <p class="font-display text-lg font-bold text-white leading-snug">Agile Approach</p>
+            <p class="text-[0.9375rem] text-slate-300 mt-1 leading-relaxed">Flexible, iterative methods that adapt quickly and deliver value at speed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section id="services" class="py-16 md:py-20 bg-mist">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2">Integrated Solutions for Business Transformation</h2>
+      <p class="text-slate-600 mt-3 text-lg">End-to-end consulting across strategy, growth, process and technology - turning complexity into outcomes you can track.</p>
+    </div>
+
+    <p class="sm:hidden -mt-4 mb-4 text-sm font-semibold text-slate-500">Swipe to see all four services →</p>
+    <div class="swipe-row flex sm:grid sm:grid-cols-2 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-pl-6 -mx-6 px-6 pb-4 sm:mx-0 sm:px-0 sm:pb-0" id="service-grid">
+
+      <article class="svc-card card group relative overflow-hidden p-6 sm:p-7 shrink-0 w-[84%] sm:w-auto snap-start before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand before:scale-x-0 before:origin-left before:transition-transform group-hover:before:scale-x-100 hover:before:scale-x-100">
+        <span class="absolute top-5 right-6 font-display text-sm font-bold text-slate-300">01</span>
+        <div class="flex items-start gap-5">
+          <img src="assets/icon-strategy.png" alt="" width="64" height="64" class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 transition group-hover:-translate-y-0.5 group-hover:shadow-xl" loading="lazy">
+          <div class="min-w-0">
+            <p class="text-xs font-bold tracking-widest uppercase text-brand-deep">Strategy</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink mt-1 pr-6">Strategy &amp; Growth</h3>
+            <p class="text-slate-600 mt-2 leading-relaxed">Clear roadmaps, market analysis and growth plans that give your leadership team a shared direction.</p>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card card group relative overflow-hidden p-6 sm:p-7 shrink-0 w-[84%] sm:w-auto snap-start before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand before:scale-x-0 before:origin-left before:transition-transform group-hover:before:scale-x-100 hover:before:scale-x-100">
+        <span class="absolute top-5 right-6 font-display text-sm font-bold text-slate-300">02</span>
+        <div class="flex items-start gap-5">
+          <img src="assets/icon-operations.png" alt="" width="64" height="64" class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 transition group-hover:-translate-y-0.5 group-hover:shadow-xl" loading="lazy">
+          <div class="min-w-0">
+            <p class="text-xs font-bold tracking-widest uppercase text-brand-deep">Process</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink mt-1 pr-6">Operational Excellence</h3>
+            <p class="text-slate-600 mt-2 leading-relaxed">Business process reengineering that finds and fixes the bottlenecks in your value chain - improving efficiency, quality and cost.</p>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card card group relative overflow-hidden p-6 sm:p-7 shrink-0 w-[84%] sm:w-auto snap-start before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand before:scale-x-0 before:origin-left before:transition-transform group-hover:before:scale-x-100 hover:before:scale-x-100">
+        <span class="absolute top-5 right-6 font-display text-sm font-bold text-slate-300">03</span>
+        <div class="flex items-start gap-5">
+          <img src="assets/icon-transformation.png" alt="" width="64" height="64" class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 transition group-hover:-translate-y-0.5 group-hover:shadow-xl" loading="lazy">
+          <div class="min-w-0">
+            <p class="text-xs font-bold tracking-widest uppercase text-brand-deep">Technology</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink mt-1 pr-6">Digital Transformation</h3>
+            <p class="text-slate-600 mt-2 leading-relaxed">Modernise processes, platforms and capabilities - and bring your people with you so new ways of working stick.</p>
+          </div>
+        </div>
+      </article>
+      <article class="svc-card card group relative overflow-hidden p-6 sm:p-7 shrink-0 w-[84%] sm:w-auto snap-start before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand before:scale-x-0 before:origin-left before:transition-transform group-hover:before:scale-x-100 hover:before:scale-x-100">
+        <span class="absolute top-5 right-6 font-display text-sm font-bold text-slate-300">04</span>
+        <div class="flex items-start gap-5">
+          <img src="assets/icon-analytics.png" alt="" width="64" height="64" class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 transition group-hover:-translate-y-0.5 group-hover:shadow-xl" loading="lazy">
+          <div class="min-w-0">
+            <p class="text-xs font-bold tracking-widest uppercase text-brand-deep">Technology</p>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink mt-1 pr-6">AI &amp; Data Analytics</h3>
+            <p class="text-slate-600 mt-2 leading-relaxed">Turn data into decisions - practical analytics and AI your teams will actually use.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STARTING-POINT CHECK -->
+<section id="diagnostic" class="relative overflow-hidden py-16 md:py-20 bg-ink">
+  <div aria-hidden="true" class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] h-80 rounded-full bg-brand/25 blur-3xl"></div>
+  <div class="relative max-w-4xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <span class="eyebrow !text-brand">Quick Self-Check</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">Where Should Your Transformation Start?</h2>
+      <p class="text-slate-300 mt-2 text-lg">Two quick questions to point you to the right conversation.</p>
+    </div>
+
+    <div class="card p-6 sm:p-10">
+      <div id="wiz-step-1" class="space-y-6">
+        <h3 class="font-display text-xl font-bold text-ink">1. What is your organisation's top priority right now?</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <button onclick="setGoal('setting a clear direction')" class="choice-btn">Setting a clear direction</button>
+          <button onclick="setGoal('growing revenue')" class="choice-btn">Growing revenue</button>
+          <button onclick="setGoal('improving efficiency')" class="choice-btn">Improving efficiency</button>
+          <button onclick="setGoal('modernising technology')" class="choice-btn">Modernising technology</button>
+        </div>
+      </div>
+
+      <div id="wiz-step-2" class="space-y-6 hidden">
+        <h3 class="font-display text-xl font-bold text-ink">2. What is getting in the way?</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <button onclick="setBlocker('unclear priorities or market position')" class="choice-btn">Unclear priorities or market position</button>
+          <button onclick="setBlocker('data we can\'t turn into decisions')" class="choice-btn">Data we can't turn into decisions</button>
+          <button onclick="setBlocker('manual, fragmented processes')" class="choice-btn">Manual, fragmented processes</button>
+          <button onclick="setBlocker('teams slow to adopt new ways of working')" class="choice-btn">Teams slow to adopt new ways of working</button>
+        </div>
+      </div>
+
+      <div id="wiz-step-3" class="space-y-6 hidden text-center">
+        <div class="w-16 h-16 rounded-full bg-brand/15 text-brand-deep flex items-center justify-center mx-auto mb-4 text-2xl font-bold">✓</div>
+        <h3 class="font-display text-2xl font-bold text-ink">Your Suggested Starting Point</h3>
+        <p class="text-slate-700 max-w-lg mx-auto">For <span id="res-goal" class="text-brand-deep font-bold"></span> held back by <span id="res-blocker" class="text-brand-deep font-bold"></span>, a good place to begin is:</p>
+        <p id="res-services" class="font-display text-2xl font-bold text-ink"></p>
+        <div class="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="#contact" onclick="populateContactMessage()" class="btn-primary">Discuss This With Us</a>
+          <button onclick="resetWizard()" class="btn-secondary">Start Over</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE ENGAGE -->
+<section id="approach" class="py-16 md:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl mb-10">
+      <span class="eyebrow">How We Engage</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2">From First Conversation to Lasting Results</h2>
+      <p class="text-slate-600 mt-3 text-lg">Every engagement starts on the ground with your team - not with a slide deck.</p>
+    </div>
+    <ol class="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+      <span aria-hidden="true" class="hidden lg:block absolute top-[2.75rem] xl:top-[3.5rem] left-8 right-8 h-0.5 bg-brand/40"></span>
+      <li class="relative card p-6 lg:p-5 xl:p-7">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/icon-discovery.png" alt="" width="64" height="64" class="relative z-10 w-14 h-14 lg:w-12 lg:h-12 xl:w-14 xl:h-14 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 ring-4 ring-white" loading="lazy">
+          <span class="font-display text-sm font-bold text-slate-400 whitespace-nowrap">Step 01</span>
+          <span class="ml-auto shrink-0 text-[0.65rem] font-bold tracking-wider uppercase px-2 py-1 rounded-full bg-brand text-ink whitespace-nowrap">No Cost</span>
+        </div>
+        <h3 class="font-display text-xl font-bold text-ink mt-4">Discovery Call</h3>
+        <p class="text-slate-600 mt-2 leading-relaxed text-[0.95rem]">A no-obligation conversation about where you want to go and what is in the way.</p>
+      </li>
+      <li class="relative card p-6 lg:p-5 xl:p-7">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/icon-diagnostic.png" alt="" width="64" height="64" class="relative z-10 w-14 h-14 lg:w-12 lg:h-12 xl:w-14 xl:h-14 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 ring-4 ring-white" loading="lazy">
+          <span class="font-display text-sm font-bold text-slate-400 whitespace-nowrap">Step 02</span>
+          
+        </div>
+        <h3 class="font-display text-xl font-bold text-ink mt-4">On-Site Diagnostic</h3>
+        <p class="text-slate-600 mt-2 leading-relaxed text-[0.95rem]">We embed with your team - on the ground, in your systems and processes - to see how work really gets done.</p>
+      </li>
+      <li class="relative card p-6 lg:p-5 xl:p-7">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/icon-roadmap.png" alt="" width="64" height="64" class="relative z-10 w-14 h-14 lg:w-12 lg:h-12 xl:w-14 xl:h-14 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 ring-4 ring-white" loading="lazy">
+          <span class="font-display text-sm font-bold text-slate-400 whitespace-nowrap">Step 03</span>
+          
+        </div>
+        <h3 class="font-display text-xl font-bold text-ink mt-4">Roadmap</h3>
+        <p class="text-slate-600 mt-2 leading-relaxed text-[0.95rem]">Clear priorities, a practical plan and the business case to act on it.</p>
+      </li>
+      <li class="relative card p-6 lg:p-5 xl:p-7">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/icon-delivery.png" alt="" width="64" height="64" class="relative z-10 w-14 h-14 lg:w-12 lg:h-12 xl:w-14 xl:h-14 shrink-0 rounded-[1.1rem] shadow-lg shadow-brand/25 ring-4 ring-white" loading="lazy">
+          <span class="font-display text-sm font-bold text-slate-400 whitespace-nowrap">Step 04</span>
+          
+        </div>
+        <h3 class="font-display text-xl font-bold text-ink mt-4">Delivery Support</h3>
+        <p class="text-slate-600 mt-2 leading-relaxed text-[0.95rem]">Hands-on help to implement, measure and adjust until the results stick.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section id="about" class="relative overflow-hidden py-16 md:py-20 bg-[#E8F5F3] border-y border-brand/15">
+  <div aria-hidden="true" class="pointer-events-none absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-brand/15 blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <span class="eyebrow">Who We Are</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2 leading-tight text-balance">Designing Transformation That Delivers Business Value</h2>
+    </div>
+    <div class="mt-5 grid md:grid-cols-2 gap-x-10 gap-y-4 text-slate-700 text-base lg:text-lg leading-relaxed">
+      <p>We are a boutique business and technology consulting firm. We combine strategic insight, operational excellence and technology expertise to help leaders solve complex challenges - and deliver results they can see.</p>
+      <p>Our approach is pragmatic and hands-on: we build change that scales, that your teams can act on and that stays tied to your long-term goals.</p>
+    </div>
+
+    <!-- Credibility bar -->
+    <dl class="mt-10 grid grid-cols-2 lg:grid-cols-4 rounded-3xl bg-ink shadow-xl shadow-ink/20 ring-1 ring-white/5 overflow-hidden">
+      <div class="p-5 lg:px-6 lg:py-5">
+        <span class="w-9 h-9 rounded-xl bg-brand/15 text-brand flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <div>
+          <dt class="font-display text-base sm:text-lg xl:text-xl font-bold text-white leading-tight">20+ Years</dt>
+          <dd class="mt-1 text-sm text-slate-400 leading-snug">Across seven industries</dd>
+        </div>
+      </div>
+      <div class="p-5 lg:px-6 lg:py-5 border-l border-white/10">
+        <span class="w-9 h-9 rounded-xl bg-brand/15 text-brand flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+        </span>
+        <div>
+          <dt class="font-display text-base sm:text-lg xl:text-xl font-bold text-white leading-tight">Regional Reach</dt>
+          <dd class="mt-1 text-sm text-slate-400 leading-snug">Sri Lanka and Asian markets</dd>
+        </div>
+      </div>
+      <div class="p-5 lg:px-6 lg:py-5 border-t lg:border-t-0 lg:border-l border-white/10">
+        <span class="w-9 h-9 rounded-xl bg-brand/15 text-brand flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
+        </span>
+        <div>
+          <dt class="font-display text-base sm:text-lg xl:text-xl font-bold text-white leading-tight">Cross-Discipline</dt>
+          <dd class="mt-1 text-sm text-slate-400 leading-snug">Engineering, finance and business process</dd>
+        </div>
+      </div>
+      <div class="p-5 lg:px-6 lg:py-5 border-l border-t lg:border-t-0 border-white/10">
+        <span class="w-9 h-9 rounded-xl bg-brand/15 text-brand flex items-center justify-center mb-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6"/><path d="M18 14.3c1.8.8 3 2.8 3 5.7"/></svg>
+        </span>
+        <div>
+          <dt class="font-display text-base sm:text-lg xl:text-xl font-bold text-white leading-tight">Hands-On</dt>
+          <dd class="mt-1 text-sm text-slate-400 leading-snug">We embed with your team</dd>
+        </div>
+      </div>
+    </dl>
+
+    <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+      <p class="text-xs font-bold tracking-widest uppercase text-brand-deep shrink-0">Industry experience</p>
+      <ul class="flex flex-wrap gap-2">
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">Telecom</li>
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">Smart Cities</li>
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">IoT</li>
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">SaaS</li>
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">Education</li>
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">BPO</li>
+        <li class="px-3.5 py-1.5 rounded-full bg-white border border-brand/25 text-sm font-semibold text-ink">Banking</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="team" class="py-16 md:py-20 bg-mist">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl mb-10">
+      <span class="eyebrow">Leadership</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2">Meet the Founders</h2>
+      <p class="text-slate-600 mt-3 text-lg">Senior, hands-on leadership - with experience from boardroom strategy to day-to-day delivery.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <article class="card p-7 sm:p-8 flex flex-col">
+        <div class="flex items-center gap-5">
+          <div class="w-20 h-20 shrink-0 rounded-2xl bg-[#E8F5F3] border border-brand/20 overflow-hidden" role="img" aria-label="Feroz Ahamed">
+            <svg viewBox="0 0 80 80" class="w-full h-full" aria-hidden="true">
+              <path d="M12 80c0-17 12-27 28-27s28 10 28 27z" fill="#1A9E8F"/>
+              <rect x="34" y="42" width="12" height="13" rx="5" fill="#1A9E8F"/>
+              <circle cx="40" cy="31" r="14" fill="#1A9E8F"/>
+              <path d="M26 30c0-10 6-16 14-16s14 5 14 14c-3-4-8-6-14-6s-10 3-14 8z" fill="#1E2D2B"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-ink">Feroz Ahamed</h3>
+            <p class="text-brand-deep font-semibold">Co-Founder &amp; Director</p>
+          </div>
+        </div>
+        <p class="text-slate-600 mt-5 leading-relaxed flex-1">An engineer turned techno-commercial leader with 20 years across telecom, smart cities, IoT and SaaS. Feroz has led technology operations, managed services, strategic projects, client services, treasury operations and revenue operations for clients and teams across multiple geographies, including Sri Lanka, Malaysia and Indonesia - bringing technical depth and commercial discipline to every engagement.</p>
+        <ul class="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">BSc Eng (First Class)</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">MBA</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">MSc Business Analytics</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">Six Sigma</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">PMP</li>
+        </ul>
+        <a href="https://www.linkedin.com/in/ferozahamed/" target="_blank" rel="noopener" class="mt-6 pt-5 border-t border-line inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-brand-deep">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </article>
+
+      <article class="card p-7 sm:p-8 flex flex-col">
+        <div class="flex items-center gap-5">
+          <div class="w-20 h-20 shrink-0 rounded-2xl bg-[#E8F5F3] border border-brand/20 overflow-hidden" role="img" aria-label="Zahara Ansary">
+            <svg viewBox="0 0 80 80" class="w-full h-full" aria-hidden="true">
+              <path d="M22 54c-1-8 1-22 3-29 3-9 9-13 15-13s12 4 15 13c2 7 4 21 3 29-6 2-30 2-36 0z" fill="#1E2D2B"/>
+              <path d="M12 80c0-17 12-27 28-27s28 10 28 27z" fill="#1A9E8F"/>
+              <rect x="34" y="42" width="12" height="13" rx="5" fill="#1A9E8F"/>
+              <circle cx="40" cy="31" r="13" fill="#1A9E8F"/>
+              <path d="M27 30c1-9 6-14 13-14s12 5 13 14c-5-1-10-4-13-8-3 4-8 7-13 8z" fill="#1E2D2B"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-ink">Zahara Ansary</h3>
+            <p class="text-brand-deep font-semibold">Co-Founder &amp; Director</p>
+          </div>
+        </div>
+        <p class="text-slate-600 mt-5 leading-relaxed flex-1">A management accountant turned strategic marketer with over two decades across banking, BPO, telecommunications and professional education. Zahara has built and led country operations for international education and professional bodies across Sri Lanka and the Maldives - driving market growth, strategic partnerships and regional programmes across Asia Pacific. She was named among Sri Lanka's Iconic Women (2025) and CEO Magazine's Women to Watch (2025).</p>
+        <ul class="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">FCMA</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">CGMA</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">CPA</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">MBA</li>
+          <li class="px-3 py-1.5 rounded-full bg-mist border border-line text-slate-700">PMP</li>
+        </ul>
+        <a href="https://www.linkedin.com/in/zahara-ansary-29b65772/" target="_blank" rel="noopener" class="mt-6 pt-5 border-t border-line inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-brand-deep">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="py-16 md:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div class="max-w-2xl">
+        <span class="eyebrow">Insights</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2">Thought Leadership &amp; Industry Perspectives</h2>
+        <p class="text-slate-600 mt-3 text-lg">Explore our latest thinking on business transformation, technology trends and strategic insights that drive measurable impact.</p>
+      </div>
+      <a href="#insights" class="btn-secondary">View All Insights →</a>
+    </div>
+
+    <div class="swipe-row flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-pl-6 -mx-6 px-6 pb-4 md:mx-0 md:px-0 md:pb-0">
+      <article class="card p-7 shrink-0 w-[84%] md:w-auto snap-start">
+        <span class="text-xs font-bold tracking-widest text-brand-deep uppercase">Strategy</span>
+        <h3 class="font-display text-xl font-bold text-ink mt-3">Insight title</h3>
+        <p class="text-slate-600 text-sm mt-2">Short summary of the article goes here.</p>
+      </article>
+      <article class="card p-7 shrink-0 w-[84%] md:w-auto snap-start">
+        <span class="text-xs font-bold tracking-widest text-brand-deep uppercase">Technology</span>
+        <h3 class="font-display text-xl font-bold text-ink mt-3">Insight title</h3>
+        <p class="text-slate-600 text-sm mt-2">Short summary of the article goes here.</p>
+      </article>
+      <article class="card p-7 shrink-0 w-[84%] md:w-auto snap-start">
+        <span class="text-xs font-bold tracking-widest text-brand-deep uppercase">Process</span>
+        <h3 class="font-display text-xl font-bold text-ink mt-3">Insight title</h3>
+        <p class="text-slate-600 text-sm mt-2">Short summary of the article goes here.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- START A CONVERSATION -->
+<section id="contact" class="py-14 md:py-16 bg-mist border-t border-line">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-2xl mb-8">
+      <span class="eyebrow">Start a Conversation</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-ink mt-2 leading-tight">Let's Turn Ambition into Action</h2>
+      <p class="text-slate-600 mt-3 text-lg">Tell us where you want to go. We'll come back with a clear first step - whether it's strategy, growth, process or technology.</p>
+    </div>
+
+    <div class="card p-6 sm:p-8">
+      <form id="contact-form" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5" onsubmit="handleFormSubmit(event)">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="New message from fuzentra.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div><label for="f-first" class="field-label">First Name</label><input id="f-first" name="First name" type="text" autocomplete="given-name" required class="field"></div>
+        <div><label for="f-last" class="field-label">Last Name</label><input id="f-last" name="Last name" type="text" autocomplete="family-name" required class="field"></div>
+        <div><label for="f-email" class="field-label">Email Address</label><input id="f-email" name="email" type="email" autocomplete="email" required class="field"></div>
+        <div><label for="f-phone" class="field-label">Phone / WhatsApp</label><input id="f-phone" name="Phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+94 77 123 4567" pattern="\+94[\s\-]?\d{2}[\s\-]?\d{3}[\s\-]?\d{4}" title="Use the +94 format, e.g. +94 77 123 4567" class="field"></div>
+        <div><label for="f-company" class="field-label">Company</label><input id="f-company" name="Company" type="text" autocomplete="organization" class="field"></div>
+        <div class="sm:col-span-2 lg:col-span-4"><label for="form-message" class="field-label">How can we help?</label><textarea id="form-message" name="Message" rows="3" required class="field block resize-none lg:h-24"></textarea></div>
+        <div class="sm:col-span-2 lg:col-span-1 flex items-end">
+          <button type="submit" id="submit-btn" class="btn-primary w-full lg:h-24 disabled:opacity-60 disabled:cursor-wait">
+            <span id="submit-text">Send Message</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </form>
+      <p class="mt-4 text-xs text-slate-500">By sending this form, you agree to our <a href="privacy.html" data-privacy-popup class="underline font-semibold hover:text-brand-deep">privacy statement</a>.</p>
+      <p id="form-error" class="hidden mt-4 text-sm text-rose-600" role="alert">Sorry, your message couldn't be sent. Please try again, or email us at <a href="mailto:hello@fuzentra.com" class="underline font-semibold">hello@fuzentra.com</a>.</p>
+      <div id="form-success" class="hidden text-center py-6 space-y-3">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+        <h4 class="font-display text-xl font-bold text-ink">Message sent!</h4>
+        <p class="text-slate-600 text-sm">Thank you for reaching out. We'll be in touch soon.</p>
+        <button onclick="closeSuccess()" class="mt-2 text-sm text-brand-deep font-semibold hover:underline">Close</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY STATEMENT POP-UP -->
+<dialog id="privacy-dialog" aria-labelledby="privacy-title" class="m-auto w-[calc(100%-2rem)] max-w-2xl rounded-3xl p-0 shadow-2xl backdrop:bg-ink/60 backdrop:backdrop-blur-sm">
+  <div class="flex flex-col max-h-[88vh]">
+    <div class="shrink-0 bg-white border-b border-line px-6 py-5 flex items-start justify-between gap-4">
+      <div>
+        <span class="eyebrow">Privacy</span>
+        <h2 id="privacy-title" class="font-display text-2xl font-bold text-ink mt-1">Privacy Statement</h2>
+        <p class="text-xs text-slate-500 mt-1">Last updated: 30 October 2026 · Effective: 30 October 2026 · Version 1.0</p>
+      </div>
+      <button type="button" data-close-privacy class="shrink-0 w-10 h-10 rounded-full border border-line text-ink hover:border-brand hover:text-brand-deep flex items-center justify-center" aria-label="Close">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="overflow-y-auto px-6 py-5 space-y-3 text-[0.95rem] text-slate-700 leading-relaxed [&_strong]:text-ink">
+<p class="">fuzentra (Pvt) Ltd ("fuzentra", "we", "us") respects your privacy. This statement explains how we collect, use, share and protect personal data when you visit fuzentra.com (the "Website"), contact us or work with us, in line with Sri Lanka's Personal Data Protection Act, No. 9 of 2022 and the other laws listed below. It is written to match how we actually operate.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">1. Who we are and how to contact us</h3>
+<p class="">For data protection purposes, the data controller is fuzentra (Pvt) Ltd, registered in Sri Lanka. For any question, request or complaint about your personal data, contact our Data Protection Contact (the Directors):</p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Address:</strong> 17/2, Shrubbery Gardens, Colombo 4, Sri Lanka</li><li><strong>Email:</strong> <a class="text-brand-deep font-semibold underline" href="mailto:hello@fuzentra.com">hello@fuzentra.com</a></li><li><strong>Phone:</strong> <a class="text-brand-deep font-semibold underline" href="tel:+94766841742">+94 766 841 742</a></li></ul>
+<h3 class="font-display text-lg font-bold text-ink pt-2">2. The laws we follow</h3>
+<p class="">Our baseline is Sri Lanka's <strong>Personal Data Protection Act, No. 9 of 2022</strong> (PDPA).</p>
+<p class="">Because we work with clients and visitors across Asia and beyond, we also comply with the data protection regulations that apply where you are, including regional data protection laws across Asia and the European Union's General Data Protection Regulation (GDPR) and its UK and Swiss equivalents.</p>
+<p class="">Where a regulation that applies to you sets a higher standard than the PDPA, we apply the higher standard.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">3. Our data principles</h3>
+<ul class="list-disc pl-5 space-y-1.5"><li>We collect only what is adequate, relevant and necessary for a clear purpose.</li><li>We use data only for the purposes we tell you about.</li><li>We keep data accurate and up to date.</li><li>We keep data no longer than needed.</li><li>We protect data with appropriate security.</li><li>We take responsibility for, and can demonstrate, how we handle data.</li></ul>
+<h3 class="font-display text-lg font-bold text-ink pt-2">4. Personal data we collect</h3>
+<p class=""><strong>Information you give us:</strong></p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Contact form:</strong> your first and last name, email address, phone or WhatsApp number (optional), company (optional) and your message.</li><li><strong>WhatsApp, email or phone:</strong> your name, number or email address and whatever you choose to share.</li><li><strong>Client work:</strong> business contact details of the people we work with, and any personal data a client shares with us to deliver an engagement.</li></ul>
+<p class=""><strong>Information collected automatically:</strong></p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Technical data:</strong> IP address, browser type and version, operating system, device type, pages visited and referring website, recorded in our hosting provider's standard server logs.</li><li><strong>Analytics:</strong> if switched on, aggregated usage data such as how you reached the Website and approximate location (city or country level).</li></ul>
+<p class="">We do not ask for sensitive data, such as health, financial account, identity card, religious or biometric information, through the Website. Please do not include it in your message.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">5. How we use your data</h3>
+<ul class="list-disc pl-5 space-y-1.5"><li>To reply to your enquiry and arrange any follow-up conversation.</li><li>To prepare proposals and deliver the services you or your organisation ask for.</li><li>To operate, secure and improve the Website.</li><li>To send service-related messages about an engagement.</li><li>To detect and prevent misuse, fraud or security threats.</li><li>To keep proper business, tax and legal records and comply with the law.</li></ul>
+<p class="">We do not sell, rent or trade personal data.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">6. Lawful bases for processing</h3>
+<p class="">We process personal data only where we have a valid legal basis:</p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Consent:</strong> for example, when you send us a message or opt in to updates.</li><li><strong>Contract:</strong> to deliver a contract with you or your organisation, or to take steps you ask for before one.</li><li><strong>Legal obligation:</strong> to meet tax, accounting and other legal requirements.</li><li><strong>Legitimate interests:</strong> to run, secure and improve our business, where these interests are not overridden by your rights and freedoms.</li></ul>
+<p class="">For visitors in the EU, UK or Switzerland, these correspond to Article 6(1)(a), (b), (c) and (f) of the GDPR and UK GDPR.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">7. Who we share it with</h3>
+<p class="">We share personal data only with the following, and only what they need:</p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Service providers</strong> who process data on our behalf under contract: FormSubmit (contact form delivery), Google (Google Analytics if switched on, and Google Fonts), our email and website hosting providers.</li><li><strong>WhatsApp (Meta)</strong>, only if you choose to contact us there.</li><li><strong>Delivery partners</strong>, only when needed for a client engagement and under confidentiality obligations.</li><li><strong>Legal and regulatory authorities</strong>, when required by law or legal process, or to protect our legal rights.</li><li><strong>A buyer or successor</strong>, if our business is restructured, merged or sold, with your data kept under equivalent protection.</li></ul>
+<h3 class="font-display text-lg font-bold text-ink pt-2">8. International transfers</h3>
+<p class="">Some service providers store or process data outside Sri Lanka, and outside your own country. When this happens, we use reputable providers and appropriate safeguards, as required by the PDPA and other applicable laws.</p>
+<p class="">For data from the EU, UK or Switzerland sent to a country without an adequacy decision (which currently includes Sri Lanka), we rely on recognised safeguards such as the European Commission's Standard Contractual Clauses and, for UK data, the UK International Data Transfer Addendum, or another lawful transfer mechanism.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">9. How long we keep it</h3>
+<ul class="list-disc pl-5 space-y-1.5"><li>Enquiries that do not lead to an engagement: deleted within 24 months.</li><li>Client and engagement records: kept for as long as our contractual, tax and legal obligations require.</li><li>Server logs and analytics: kept for the provider's standard retention period, or in aggregated form.</li></ul>
+<p class="">When data is no longer needed, we securely delete or anonymise it.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">10. How we protect it</h3>
+<p class="">We use appropriate technical and organisational measures, including encrypted (HTTPS) connections, access limited to the people who need it, strong account security and reputable providers with recognised security practices. No method of transmission over the internet is completely secure. If a personal data breach is likely to affect you, we will notify you and the relevant authorities where the law requires, and within the time it requires (for example, 72 hours to the supervisory authority under the GDPR).</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">11. Your rights</h3>
+<p class="">Depending on where you are, you have the right to:</p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Access:</strong> ask whether we hold data about you and get a copy.</li><li><strong>Correction:</strong> have inaccurate or incomplete data corrected.</li><li><strong>Erasure:</strong> have your data deleted where it is no longer needed or the law allows (the "right to be forgotten").</li><li><strong>Restriction and objection:</strong> limit or object to how we use your data, including processing based on legitimate interests.</li><li><strong>Portability:</strong> receive data you gave us in a structured, commonly used format (EU, UK and Swiss residents).</li><li><strong>Withdraw consent:</strong> at any time, as easily as you gave it. This does not affect processing already done.</li><li><strong>Automated decisions:</strong> not be subject to decisions made solely by automated means. We do not currently make such decisions.</li></ul>
+<p class="">To use any of these rights, contact us using the details in section 1. We may need to confirm your identity. We do not charge a fee unless a request is clearly unfounded or excessive, and we respond within the time the law requires (one month under the GDPR, extendable where permitted).</p>
+<p class="">If you are not satisfied, you can complain to the Data Protection Authority of Sri Lanka, or to the authority where you live or work, such as your national supervisory authority in the EU, the Information Commissioner's Office (ICO) in the UK or the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">12. Cookies</h3>
+<p class="">The Website does not use advertising or tracking cookies for marketing.</p>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Strictly necessary:</strong> any cookies needed for the Website to work securely.</li><li><strong>Analytics:</strong> if switched on, Google Analytics sets cookies to count visits and understand how the Website is used. Where the law requires, including for visitors in the EU and UK, we ask for your consent first.</li></ul>
+<p class="">You can block or delete cookies in your browser settings. The Website will still work.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">13. Marketing</h3>
+<p class="">We only send updates or marketing messages if you have opted in. Every message includes a simple way to unsubscribe, and you can opt out at any time.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">14. Third-party links</h3>
+<p class="">The Website links to other sites, such as LinkedIn, Facebook and WhatsApp. We are not responsible for their content or privacy practices, so please read their privacy policies.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">15. Children</h3>
+<p class="">The Website and our services are intended for businesses and professionals. We do not knowingly collect personal data from anyone under 18.</p>
+<h3 class="font-display text-lg font-bold text-ink pt-2">16. Changes to this statement</h3>
+<p class="">We review this statement regularly and update it when our practices or the law change. The latest version will always be on the Website, with its "Last updated" date and version number.</p>
+    </div>
+    <div class="shrink-0 border-t border-line px-6 py-4 flex justify-end bg-white">
+      <button type="button" data-close-privacy class="btn-primary py-3! px-8!">Got it</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/94766841742?text=Hi%20fuzentra%2C%20I%27d%20like%20to%20talk%20about%20" target="_blank" rel="noopener" id="wa-btn" aria-label="Chat with us on WhatsApp"
+   class="group fixed z-40 bottom-5 right-5 md:bottom-7 md:right-7 flex items-center gap-3 transition duration-300">
+  <span class="hidden md:block opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition bg-ink text-white text-sm font-semibold px-3 py-2 rounded-lg shadow-lg">Chat on WhatsApp</span>
+  <span class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl shadow-black/20 ring-4 ring-white transition group-hover:scale-105">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.04 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.17-3.49-8.42z"/></svg>
+  </span>
+</a>
+
+<!-- FOOTER -->
+<footer class="bg-night text-slate-400">
+  <div class="max-w-7xl mx-auto px-6 pt-12 pb-8">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5 space-y-5">
+        <p class="text-[0.95rem] leading-relaxed max-w-sm">Business and technology consulting - helping organisations unlock performance across their value chains.</p>
+        <div class="flex gap-3">
+          <a href="https://linkedin.com/company/fuzentra" target="_blank" rel="noopener" aria-label="fuzentra on LinkedIn" class="block w-11 h-11 rounded-[0.7rem] transition hover:-translate-y-0.5 hover:ring-2 hover:ring-brand"><img src="assets/icon-linkedin.png" alt="" width="44" height="44" class="w-11 h-11"></a>
+          <a href="https://facebook.com/fuzentra" target="_blank" rel="noopener" aria-label="fuzentra on Facebook" class="block w-11 h-11 rounded-[0.7rem] transition hover:-translate-y-0.5 hover:ring-2 hover:ring-brand"><img src="assets/icon-facebook.png" alt="" width="44" height="44" class="w-11 h-11"></a>
+        </div>
+      </div>
+
+      <div class="md:col-span-3">
+        <h4 class="text-white text-sm font-bold tracking-widest uppercase mb-5">Quick Links</h4>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="#services" class="hover:text-brand transition">What We Do</a></li>
+          <li><a href="#approach" class="hover:text-brand transition">How We Engage</a></li>
+          <li><a href="#about" class="hover:text-brand transition">Who We Are</a></li>
+          <li><a href="#insights" class="hover:text-brand transition">Insights</a></li>
+          <li><a href="#contact" class="hover:text-brand transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4">
+        <h4 class="text-white text-sm font-bold tracking-widest uppercase mb-5">Colombo HQ</h4>
+        <address class="not-italic space-y-3 text-[0.95rem]">
+          <p class="flex gap-3"><svg class="w-5 h-5 shrink-0 mt-0.5 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>17/2, Shrubbery Gardens,<br>Colombo 4, Sri Lanka.</span></p>
+          <a href="tel:+94766841742" class="flex gap-3 hover:text-brand transition"><svg class="w-5 h-5 shrink-0 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+94 766 841 742</a>
+          <a href="mailto:hello@fuzentra.com" class="flex gap-3 hover:text-brand transition"><svg class="w-5 h-5 shrink-0 text-brand" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hello@fuzentra.com</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <p>© <span id="year"></span> fuzentra (Pvt) Ltd. All rights reserved.</p>
+      <div class="flex flex-wrap items-center justify-center gap-6">
+        <a href="privacy.html" data-privacy-popup class="hover:text-white transition">Privacy Statement</a>
+        <a href="#hero" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-white/10 bg-white/5 text-slate-200 hover:border-brand hover:text-brand transition">↑ Back to top</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll progress
+  window.addEventListener('scroll', () => {
+    const top = document.documentElement.scrollTop;
+    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('progress-bar').style.width = (h > 0 ? top / h * 100 : 0) + '%';
+  });
+
+  // Highlight the menu link for the section in view
+  const navLinks = [...document.querySelectorAll('.nav-link')];
+  const sections = ['services','diagnostic','approach','about','insights','contact'].map(id => document.getElementById(id)).filter(Boolean);
+  const markCurrent = () => {
+    const y = window.scrollY + 120;
+    let current = null;
+    sections.forEach(s => { if (s.offsetTop <= y) current = '#' + s.id; });
+    navLinks.forEach(a => a.classList.toggle('is-current', a.getAttribute('href') === current));
+  };
+  window.addEventListener('scroll', markCurrent, { passive: true });
+  markCurrent();
+
+  // Hide the WhatsApp button once the contact section or footer is on screen
+  const waBtn = document.getElementById('wa-btn');
+  const contactZones = new Set();
+  const waObserver = new IntersectionObserver(entries => {
+    entries.forEach(en => en.isIntersecting ? contactZones.add(en.target) : contactZones.delete(en.target));
+    const hide = contactZones.size > 0;
+    waBtn.classList.toggle('opacity-0', hide);
+    waBtn.classList.toggle('translate-y-4', hide);
+    waBtn.classList.toggle('pointer-events-none', hide);
+    waBtn.setAttribute('aria-hidden', hide);
+    waBtn.tabIndex = hide ? -1 : 0;
+  }, { threshold: 0.15 });
+  ['contact'].forEach(id => waObserver.observe(document.getElementById(id)));
+  waObserver.observe(document.querySelector('footer'));
+
+  // Privacy statement pop-up
+  const privacyDialog = document.getElementById('privacy-dialog');
+  document.querySelectorAll('[data-privacy-popup]').forEach(a => a.addEventListener('click', e => {
+    if (typeof privacyDialog.showModal === 'function') { e.preventDefault(); privacyDialog.showModal(); }
+  }));
+  document.querySelectorAll('[data-close-privacy]').forEach(b => b.addEventListener('click', () => privacyDialog.close()));
+  privacyDialog.addEventListener('click', e => { if (e.target === privacyDialog) privacyDialog.close(); });
+
+  // Analytics: contact clicks
+  document.getElementById('wa-btn').addEventListener('click', () => track('contact_click', { method: 'whatsapp' }));
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => a.addEventListener('click', () => track('contact_click', { method: 'phone' })));
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => track('contact_click', { method: 'email' })));
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const open = !mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+
+  // Starting-point check
+  let goal = '', blocker = '';
+  const goalMap = {
+    'setting a clear direction': 'Strategy & Growth',
+    'growing revenue': 'Strategy & Growth',
+    'improving efficiency': 'Operational Excellence',
+    'modernising technology': 'Digital Transformation'
+  };
+  const blockerMap = {
+    'unclear priorities or market position': 'Strategy & Growth',
+    "data we can't turn into decisions": 'AI & Data Analytics',
+    'manual, fragmented processes': 'Operational Excellence',
+    'teams slow to adopt new ways of working': 'Digital Transformation'
+  };
+  const recommended = () => [...new Set([goalMap[goal], blockerMap[blocker]])].join(' + ');
+  function show(step) { [1,2,3].forEach(n => document.getElementById('wiz-step-' + n).classList.toggle('hidden', n !== step)); }
+  function setGoal(g) { goal = g; show(2); }
+  function setBlocker(b) {
+    blocker = b; show(3);
+    document.getElementById('res-goal').textContent = goal;
+    document.getElementById('res-blocker').textContent = blocker;
+    document.getElementById('res-services').textContent = recommended();
+  }
+  function resetWizard() { goal = ''; blocker = ''; show(1); }
+  function populateContactMessage() {
+    document.getElementById('form-message').value =
+      `Hello fuzentra team, our priority is ${goal}, but we're held back by ${blocker}. I'd like to explore ${recommended()}.`;
+  }
+
+  // Phone: start with +94 and keep the expected format
+  const phone = document.getElementById('f-phone');
+  phone.addEventListener('focus', () => { if (!phone.value.trim()) phone.value = '+94 '; });
+  phone.addEventListener('blur', () => { if (phone.value.trim() === '+94') phone.value = ''; });
+  phone.addEventListener('input', () => {
+    // Keep the local number only, then show it as +94 77 123 4567
+    let d = phone.value.replace(/\D/g, '');
+    while (d.startsWith('94')) d = d.slice(2);
+    d = d.replace(/^0+/, '').slice(0, 9);
+    const parts = [d.slice(0, 2), d.slice(2, 5), d.slice(5, 9)].filter(Boolean);
+    phone.value = '+94 ' + parts.join(' ');
+  });
+
+  // Form: sends via FormSubmit (https://formsubmit.co) to hello@fuzentra.com
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/hello@fuzentra.com';
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('submit-text');
+    const err = document.getElementById('form-error');
+    if (phone.value.trim() === '+94') phone.value = '';
+    err.classList.add('hidden');
+    btn.disabled = true; btnText.textContent = 'Sending…';
+    try {
+      const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
+      form.classList.add('hidden');
+      document.getElementById('form-success').classList.remove('hidden');
+      track('generate_lead', { method: 'contact_form' });
+    } catch (_) {
+      err.classList.remove('hidden');
+    } finally {
+      btn.disabled = false; btnText.textContent = 'Send Message';
+    }
+  }
+  function closeSuccess() {
+    document.getElementById('contact-form').reset();
+    document.getElementById('form-success').classList.add('hidden');
+    document.getElementById('contact-form').classList.remove('hidden');
+  }
+</script>
+</body>
+</html>

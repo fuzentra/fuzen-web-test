@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Brand tokens — usable as bg-brand, text-ink, font-display, etc. */
+@theme {
+  --color-brand: #1A9E8F;       /* brand teal: buttons, accents, fills */
+  --color-brand-deep: #147A6F;  /* darker brand teal for small text (readable on white) */
+  --color-ink: #1E2D2B;         /* brand charcoal: headings and body */
+  --color-mist: #F5F7F8;        /* alternate section background */
+  --color-line: #E3E8EC;        /* card and divider borders */
+  --color-night: #13201E;       /* footer background (deep brand charcoal) */
+
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-ink font-body antialiased; }
+  ::selection { @apply bg-brand text-white; }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-line rounded-3xl transition duration-200;
+    box-shadow: 0 1px 2px rgb(30 45 43 / .04), 0 8px 24px rgb(30 45 43 / .05);
+  }
+  .card:hover {
+    border-color: rgb(26 158 143 / .5);
+    box-shadow: 0 12px 32px rgb(26 158 143 / .10);
+  }
+  .eyebrow { @apply text-brand-deep text-xs font-bold tracking-widest uppercase; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-ink text-[1.0625rem] font-extrabold tracking-[0.01em] rounded-xl transition hover:shadow-xl hover:shadow-brand/30 hover:bg-[#1FB0A0];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-white border border-line text-ink font-semibold rounded-xl transition hover:border-brand hover:bg-mist;
+  }
+  .choice-btn {
+    @apply p-4 rounded-xl border border-line text-left text-ink font-semibold transition hover:border-brand hover:bg-brand/10;
+  }
+  .field {
+    @apply w-full px-4 py-3 rounded-xl bg-mist border border-line text-ink outline-none transition focus:border-brand focus:bg-white;
+  }
+  .nav-link { position: relative; }
+  .nav-link.is-current { @apply text-brand-deep; }
+  @media (min-width: 64rem) {
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -8px; height: 2px; width: 100%;
+      background: var(--color-brand); transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+    }
+    .nav-link.is-current::after, .nav-link:hover::after { transform: scaleX(1); }
+  }
+  .field-label { @apply block text-xs font-semibold text-slate-600 uppercase mb-2; }
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-up { animation: fadeInUp .7s ease-out forwards; }
+
+.progress-bar {
+  position: fixed; top: 0; left: 0; width: 0; height: 3px;
+  background: var(--color-brand); z-index: 1000; transition: width .2s ease;
+}
+
+.hero-dots {
+  background-image: radial-gradient(rgb(30 45 43 / .09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+/* Phone swipe rows: hide the scrollbar */
+.swipe-row { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.swipe-row::-webkit-scrollbar { display: none; }
+
+/* Long-form text pages (Privacy Policy) */
+.policy { @apply text-slate-700 leading-relaxed; }
+.policy > * + * { @apply mt-4; }
+.policy h2 { @apply font-display text-xl sm:text-2xl font-bold text-ink mt-10; }
+.policy ul { @apply list-disc pl-6 space-y-2; }
+.policy a { @apply text-brand-deep font-semibold underline underline-offset-2; }
+.policy strong { @apply text-ink; }
