@@ -1,13 +1,17 @@
 {
-  "name": "fuzentra-site",
+  "name": "fuzen-web-test",
   "version": "1.0.0",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "build": "npm run build:blog && npm run build:css",
+    "build:blog": "node scripts/build-blog.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
     "dev": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "marked": "^15.0.12",
     "tailwindcss": "^4.3.3"
   },
-  "private": true
+  "private": true,
+  "type": "module"
 }

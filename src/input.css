@@ -78,3 +78,17 @@
 .policy ul { @apply list-disc pl-6 space-y-2; }
 .policy a { @apply text-brand-deep font-semibold underline underline-offset-2; }
 .policy strong { @apply text-ink; }
+
+/* Insights articles (Markdown output) */
+.article { @apply text-slate-700 text-[1.0625rem] leading-[1.8]; }
+.article > * + * { @apply mt-5; }
+.article h2 { @apply font-display text-2xl sm:text-[1.65rem] font-bold text-ink mt-12 leading-snug; }
+.article h3 { @apply font-display text-xl font-bold text-ink mt-9; }
+.article ul { @apply list-disc pl-6 space-y-2 marker:text-brand; }
+.article ol { @apply list-decimal pl-6 space-y-2 marker:text-brand-deep marker:font-semibold; }
+.article a { @apply text-brand-deep font-semibold underline underline-offset-2; }
+.article strong { @apply text-ink; }
+.article blockquote { @apply border-l-4 border-brand pl-5 py-1 font-display text-xl text-ink leading-snug; }
+.article img { @apply rounded-2xl w-full; }
+.article hr { @apply border-line my-10; }
+.article code { @apply bg-mist px-1.5 py-0.5 rounded text-[0.95em]; }

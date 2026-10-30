@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights | fuzentra</title>
+<meta name="description" content="Thought leadership and industry perspectives from fuzentra on strategy, operations, digital transformation, and AI and data.">
+<link rel="canonical" href="https://fuzentra.com/insights/">
+<meta property="og:title" content="Insights | fuzentra">
+<meta property="og:description" content="Thought leadership and industry perspectives from fuzentra on strategy, operations, digital transformation, and AI and data.">
+<meta property="og:image" content="https://fuzentra.com/og-image.jpg">
+<meta property="og:url" content="https://fuzentra.com/insights/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#1A9E8F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav class="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-md border-b border-line">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="../" aria-label="fuzentra home">
+      <img src="../assets/fuzentra-logo.png" alt="fuzentra." class="h-10 md:h-12 w-auto">
+    </a>
+    <div class="hidden lg:flex items-center gap-6 xl:gap-10">
+      <a href="../#services" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">WHAT WE DO</a>
+      <a href="../#approach" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">HOW WE ENGAGE</a>
+      <a href="../#about" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors">WHO WE ARE</a>
+      <a href="../insights/" class="nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors is-current" aria-current="page">INSIGHTS</a>
+      <a href="../#contact" class="px-5 py-3 xl:px-6 xl:py-3.5 bg-brand text-ink text-[0.8125rem] xl:text-sm font-extrabold tracking-wider rounded-xl hover:shadow-lg hover:shadow-brand/30 transition">START A CONVERSATION</a>
+    </div>
+    <button id="menu-btn" class="lg:hidden p-2 text-ink" aria-label="Open menu" aria-expanded="false">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-line px-6 py-4 space-y-4 bg-white">
+    <a href="../#services" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">WHAT WE DO</a>
+    <a href="../#approach" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">HOW WE ENGAGE</a>
+    <a href="../#about" class="nav-link block text-sm font-semibold tracking-widest text-slate-700">WHO WE ARE</a>
+    <a href="../insights/" class="nav-link block text-sm font-semibold tracking-widest text-slate-700 is-current" aria-current="page">INSIGHTS</a>
+    <a href="../#contact" class="block text-center px-5 py-3 bg-brand text-ink text-sm font-bold tracking-widest rounded-xl">START A CONVERSATION</a>
+  </div>
+</nav>
+
+<header class="relative overflow-hidden bg-[#E8F5F3] border-b border-brand/15 pt-32 pb-12 md:pt-36 md:pb-14">
+  <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-24 w-96 h-96 rounded-full bg-brand/15 blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-6">
+    <span class="eyebrow">Insights</span>
+    <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-ink mt-2 max-w-3xl text-balance">Thought Leadership &amp; Industry Perspectives</h1>
+    <p class="text-slate-600 mt-4 text-lg max-w-2xl">Explore our latest thinking on business transformation, technology trends and strategic insights that drive measurable impact.</p>
+  </div>
+</header>
+
+<main class="bg-mist">
+  <div class="max-w-7xl mx-auto px-6 py-14 md:py-16">
+    <div class="card p-10 text-center"><p class="font-display text-2xl font-bold text-ink">Our first articles are on the way.</p><p class="text-slate-600 mt-2">Follow <a href="https://linkedin.com/company/fuzentra" target="_blank" rel="noopener" class="text-brand-deep font-semibold underline">fuzentra on LinkedIn</a> to see them first.</p></div>
+  </div>
+</main>
+
+<footer class="bg-night text-slate-400">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+    <p>© <span id="year"></span> fuzentra (Pvt) Ltd. All rights reserved.</p>
+    <div class="flex flex-wrap items-center justify-center gap-6">
+      <a href="../" class="hover:text-white transition">Home</a>
+      <a href="../insights/" class="hover:text-white transition">Insights</a>
+      <a href="../#contact" class="hover:text-white transition">Contact</a>
+      <a href="../privacy.html" class="hover:text-white transition">Privacy Statement</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  window.addEventListener('scroll', () => {
+    const t = document.documentElement.scrollTop, h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('progress-bar').style.width = (h > 0 ? t / h * 100 : 0) + '%';
+  }, { passive: true });
+  const menuBtn = document.getElementById('menu-btn'), mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => menuBtn.setAttribute('aria-expanded', !mobileMenu.classList.toggle('hidden')));
+  document.querySelectorAll('[data-copy-link]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(location.href); b.querySelector('span').textContent = 'Link copied'; }
+    catch (_) { prompt('Copy this link:', location.href); }
+  }));
+</script>
+</body>
+</html>
