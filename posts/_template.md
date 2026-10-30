@@ -4,6 +4,7 @@ date: 2026-10-30
 author: Feroz Ahamed
 summary: One or two sentences that appear on the Insights cards and in Google results.
 linkedin: https://www.linkedin.com/pulse/your-original-post-url
+image: assets/insights/your-image.jpg
 draft: true
 ---
 
@@ -15,6 +16,7 @@ How to add an article:
    - `date` as YYYY-MM-DD (newest articles show first)
    - `author` as Feroz Ahamed or Zahara Ansary
    - `linkedin` is optional - the link to the original post
+   - `image` is optional - upload a picture to assets/insights/ and put its path here
    - delete the `draft: true` line when you are ready to publish
 3. Write the article below the second `---` using Markdown:
 

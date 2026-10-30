@@ -59,7 +59,7 @@ function loadPosts() {
 const NAV_LINK = 'nav-link text-xs lg:text-[0.8125rem] xl:text-sm font-semibold tracking-widest text-slate-700 hover:text-brand-deep transition-colors';
 const NAV_LINK_M = 'nav-link block text-sm font-semibold tracking-widest text-slate-700';
 
-function layout({ base, title, description, canonical, ogType = 'website', jsonLd = '', main }) {
+function layout({ base, title, description, canonical, ogType = 'website', ogImage = `${SITE}/og-image.jpg`, jsonLd = '', main }) {
   const links = [['#services', 'WHAT WE DO'], ['#approach', 'HOW WE ENGAGE'], ['#about', 'WHO WE ARE']];
   const desk = links.map(([h, t]) => `      <a href="${base}${h}" class="${NAV_LINK}">${t}</a>`).join('\n');
   const mob = links.map(([h, t]) => `    <a href="${base}${h}" class="${NAV_LINK_M}">${t}</a>`).join('\n');
@@ -73,7 +73,7 @@ function layout({ base, title, description, canonical, ogType = 'website', jsonL
 <link rel="canonical" href="${canonical}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
-<meta property="og:image" content="${SITE}/og-image.jpg">
+<meta property="og:image" content="${ogImage}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:type" content="${ogType}">
 <meta name="twitter:card" content="summary_large_image">
@@ -152,7 +152,13 @@ function authorBadge(name, size = 'sm') {
 }
 
 function card(p, base, extra = '') {
-  return `      <article class="card group relative p-7 flex flex-col ${extra}">
+  return `      <article class="card group relative p-7 flex flex-col ${extra}">${p.image ? `
+        <img src="${base}${esc(p.image)}" alt="" loading="lazy" class="w-full aspect-[16/9] object-contain bg-white border border-line rounded-xl mb-5">` : `
+        <div aria-hidden="true" class="relative w-full aspect-[16/9] rounded-xl mb-5 overflow-hidden bg-ink flex items-end p-5">
+          <div class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-brand/35 blur-2xl"></div>
+          <div class="absolute inset-0 opacity-30 [background-image:radial-gradient(rgb(255_255_255/.35)_1px,transparent_1px)] [background-size:18px_18px]"></div>
+          <img src="${base}assets/fuzentra-logo-white.png" alt="" class="relative h-7 w-auto">
+        </div>`}
         <p class="text-xs font-semibold text-slate-500">${fmtDate(p.date)} · ${p.minutes} min read</p>
         <h3 class="font-display text-xl font-bold text-ink mt-3 leading-snug group-hover:text-brand-deep transition"><a href="${base}insights/${p.slug}/" class="after:absolute after:inset-0">${esc(p.title)}</a></h3>
         <p class="text-slate-600 text-[0.95rem] leading-relaxed mt-2 flex-1">${esc(p.summary)}</p>
@@ -212,7 +218,7 @@ function postPage(p, posts) {
   const jsonLd = `<script type="application/ld+json">
 ${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.summary,
-    datePublished: p.date, dateModified: p.updated || p.date, url, image: `${SITE}/og-image.jpg`,
+    datePublished: p.date, dateModified: p.updated || p.date, url, image: p.image ? `${SITE}/${p.image}` : `${SITE}/og-image.jpg`,
     author: { '@type': 'Person', name: p.author, ...(a.linkedin ? { url: a.linkedin } : {}) },
     publisher: { '@type': 'Organization', name: 'fuzentra', logo: { '@type': 'ImageObject', url: `${SITE}/assets/fuzentra-logo.png` } },
     mainEntityOfPage: url,
@@ -236,7 +242,8 @@ ${JSON.stringify({
 </header>
 
 <main class="bg-white">
-  <article class="max-w-3xl mx-auto px-6 py-12 md:py-14">
+  <article class="max-w-3xl mx-auto px-6 py-12 md:py-14">${p.image ? `
+    <img src="${base}${esc(p.image)}" alt="${esc(p.image_alt || p.title)}" class="w-full rounded-2xl mb-10 bg-mist">` : ''}
     <div class="article">
 ${p.html}
     </div>
@@ -269,7 +276,7 @@ ${more.map((o) => card(o, base)).join('\n')}
     </div>
   </section>` : ''}
 </main>`;
-  return layout({ base, title: `${p.title} | fuzentra`, description: p.summary, canonical: url, ogType: 'article', jsonLd, main });
+  return layout({ base, title: `${p.title} | fuzentra`, description: p.summary, canonical: url, ogType: 'article', ogImage: p.image ? `${SITE}/${p.image}` : undefined, jsonLd, main });
 }
 
 // ---------- build ----------

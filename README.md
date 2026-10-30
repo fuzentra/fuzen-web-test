@@ -55,5 +55,5 @@ All links are relative, so the same files work on GitHub Pages and on fuzentra.c
 - `assets/fuzentra-logo-large.png`, `assets/fuzentra-logo-white.png` - transparent logos for decks and documents.
 
 ## Before go-live
-- Publish the first articles (until then the home page shows "Our first articles are on the way").
+- Review the three launch articles (converted from LinkedIn with UK spelling and hyphens to match the site).
 - Have the Privacy Statement reviewed by a lawyer.
