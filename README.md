@@ -2,6 +2,12 @@
 
 Single-page site for fuzentra (Pvt) Ltd, built with the Tailwind CSS v4 CLI (no CDN).
 
+**Test site:** https://fuzentra.github.io/fuzen-web-test/ (GitHub Pages, served from the root of `main`; updates a minute or two after each push).
+
+## Pages
+- `index.html` - home page (hero, What We Do, self-check, How We Engage, Who We Are, founders, Insights, Start a Conversation)
+- `privacy.html` - Privacy Statement (also shown as a pop-up on the home page)
+
 ## Build
     npm install
     npm run build    # writes styles.css (minified)
@@ -9,10 +15,16 @@ Single-page site for fuzentra (Pvt) Ltd, built with the Tailwind CSS v4 CLI (no 
 
 Re-run `npm run build` after changing classes in `index.html` or `privacy.html`, and commit the updated `styles.css`.
 
-## Files to upload (site root)
+## Files to upload to fuzentra.com (site root)
 - `index.html`, `privacy.html`, `styles.css`
 - `og-image.jpg`, `favicon.ico`, `apple-touch-icon.png`
 - `assets/` (logo, favicons, service, step and social icons)
+
+All links to these files are relative, so the same files work on GitHub Pages and on fuzentra.com.
+
+## Testing notes
+- The contact form only sends from a live site (GitHub Pages or fuzentra.com), not from a file opened locally.
+- Search and social previews (canonical link, `og:image`) point to fuzentra.com, so link previews only show correctly once the site is live there.
 
 ## Settings to fill in
 - **Google Analytics:** in `index.html` set `window.GA_ID = 'G-XXXXXXX'` (blank = off).
