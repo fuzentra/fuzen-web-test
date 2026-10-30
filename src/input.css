@@ -92,3 +92,8 @@
 .article img { @apply rounded-2xl w-full; }
 .article hr { @apply border-line my-10; }
 .article code { @apply bg-mist px-1.5 py-0.5 rounded text-[0.95em]; }
+
+/* Self-check: animated "thinking" dots */
+.sc-dots::after { content: ''; display: inline-block; width: 1.2em; text-align: left; animation: sc-dots 1.2s steps(4, end) infinite; }
+@keyframes sc-dots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75%, 100% { content: '...'; } }
+@media (prefers-reduced-motion: reduce) { .sc-dots::after { animation: none; content: '...'; } }

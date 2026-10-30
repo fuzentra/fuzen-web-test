@@ -304,9 +304,14 @@
             <h3 id="sc-service" class="font-display text-2xl sm:text-3xl font-extrabold text-ink mt-1"></h3>
           </div>
         </div>
-        <p id="sc-reason" class="text-slate-700 text-lg leading-relaxed mt-5"></p>
-        <p id="sc-also" class="hidden mt-3 text-slate-600"></p>
-        <div id="sc-ai" class="hidden mt-5 p-5 rounded-2xl bg-[#E8F5F3] border border-brand/20 text-slate-700 leading-relaxed"></div>
+                <div id="sc-ai" class="mt-5 p-5 sm:p-6 rounded-2xl bg-[#E8F5F3] border border-brand/20">
+          <p class="flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-deep">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9z"/><path d="M19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z" opacity=".6"/></svg>
+            Personalised insight
+          </p>
+          <p id="sc-ai-thinking" class="mt-3 text-slate-500 text-[0.95rem]">Analysing your answers<span class="sc-dots"></span></p>
+          <p id="sc-ai-text" class="mt-3 text-slate-700 text-[1.0125rem] leading-relaxed hidden"></p>
+        </div>
         <details class="mt-6 group">
           <summary class="cursor-pointer text-sm font-bold text-ink hover:text-brand-deep">Your answers</summary>
           <ol id="sc-summary" class="mt-3 space-y-2 text-sm text-slate-600 list-decimal pl-5"></ol>
@@ -849,9 +854,7 @@
   function scResult() {
     const { top, second } = scScores();
     const s = SC_SERVICES[top];
-    $('sc-icon').src = s.icon; $('sc-service').textContent = s.name; $('sc-reason').textContent = s.reason;
-    $('sc-also').classList.toggle('hidden', !second);
-    if (second) $('sc-also').innerHTML = `Also worth exploring: <strong class="text-ink">${SC_SERVICES[second].name}</strong>.`;
+    $('sc-icon').src = s.icon; $('sc-service').textContent = second ? `${s.name} + ${SC_SERVICES[second].name}` : s.name;
     $('sc-summary').innerHTML = '';
     sc.answers.forEach((a, i) => {
       const li = document.createElement('li');
@@ -860,10 +863,70 @@
       $('sc-summary').appendChild(li);
     });
     $('sc-quiz').classList.add('hidden'); $('sc-result').classList.remove('hidden');
+    scShowInsight();
     track('self_check_complete', { service: s.name });
   }
 
+  // Personalised insight: composed from the four answers (256 combinations)
+  const SC_AREA = { S: 'direction and growth', O: 'how work gets done', D: 'your systems and ways of working', A: 'data and decision-making' };
+  const SC_TEXT = [
+    { S: 'set a clear direction and a growth plan', O: 'improve efficiency and bring costs down', D: 'modernise your systems and ways of working', A: 'make better use of your data and AI' },
+    { S: 'unclear priorities and market positioning are holding you back', O: 'manual, fragmented processes are slowing everything down',
+      D: "legacy systems that don't talk to each other are getting in the way", A: "data you can't fully trust is making decisions harder than they should be" },
+    { S: 'growth is happening, but planning is still mostly informal', O: 'things work, yet they depend heavily on key people and workarounds',
+      D: 'digitisation has started, but adoption is patchy', A: 'the systems are there, but insight still lives in spreadsheets' },
+    { S: 'your leadership team executing a shared roadmap', O: 'faster turnaround, lower cost and fewer errors',
+      D: 'your teams working on modern, connected platforms', A: 'leaders making decisions from live dashboards and practical AI' },
+  ];
+  const SC_NEXT = {
+    S: "we'd start with Strategy & Growth: a focused session with your leadership team to agree priorities, then a practical roadmap everyone can execute.",
+    O: "we'd start with Operational Excellence: mapping how work really flows, removing the biggest bottlenecks first and locking in quick wins.",
+    D: "we'd start with Digital Transformation: connecting the right platforms and bringing your people with you, so new tools actually stick.",
+    A: "we'd start with AI & Data Analytics: getting your data to a trusted state, then putting dashboards and practical AI where they change decisions.",
+  };
+  const SC_ALSO = {
+    S: 'a clear direction keeps every change pointed at what matters most',
+    O: 'smoother processes make every new tool and decision more effective',
+    D: 'connected systems are what let the improvements scale',
+    A: 'trusted data will show whether the changes are working',
+  };
+  function scInsight() {
+    const keys = sc.answers.map((a, i) => SC_QUESTIONS[i].options[a][0]);
+    const { score, top, second } = scScores();
+    const counts = Object.values(score).filter(Boolean).sort((a, b) => b - a);
+    let open;
+    if (counts[0] === 4) open = `Your answers are remarkably consistent - every one of them points to ${SC_AREA[top]}.`;
+    else if (counts[0] === 3) open = `Three of your four answers point to ${SC_AREA[top]}, which makes your starting point clear.`;
+    else if (counts[0] === 2 && counts[1] === 2) open = `Your answers are split: half point to ${SC_AREA[top]}, half to ${SC_AREA[second]} - often two sides of the same challenge.`;
+    else if (counts[0] === 2) open = `Your answers lean towards ${SC_AREA[top]}, with a few other pressures in the mix.`;
+    else open = 'Your answers cover a lot of ground, which is common when several things need attention at once.';
+    const body = `You want to ${SC_TEXT[0][keys[0]]}, but ${SC_TEXT[1][keys[1]]}. Today, ${SC_TEXT[2][keys[2]]} - and in 12 months you'd like to see ${SC_TEXT[3][keys[3]]}.`;
+    const lead = counts[0] === 1 ? 'With so much in play, the first step matters most, so ' : "That's why ";
+    const also = second ? ` Along the way, ${SC_SERVICES[second].name} will matter too: ${SC_ALSO[second]}.` : '';
+    return `${open} ${body} ${lead}${SC_NEXT[top]}${also}`;
+  }
+
+  let scTyping = null;
+  function scShowInsight() {
+    const text = scInsight();
+    const thinking = $('sc-ai-thinking'), out = $('sc-ai-text');
+    clearTimeout(scTyping); out.textContent = ''; out.classList.add('hidden'); thinking.classList.remove('hidden');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scTyping = setTimeout(() => {
+      thinking.classList.add('hidden'); out.classList.remove('hidden');
+      if (reduced) { out.textContent = text; return; }
+      let i = 0;
+      const step = () => {
+        i = Math.min(text.length, i + 2 + Math.floor(Math.random() * 3));
+        out.textContent = text.slice(0, i);
+        if (i < text.length) scTyping = setTimeout(step, 18);
+      };
+      step();
+    }, reduced ? 0 : 1100 + Math.random() * 500);
+  }
+
   function scRestart() {
+    clearTimeout(scTyping);
     sc.step = 0; sc.answers = [];
     $('sc-result').classList.add('hidden'); $('sc-quiz').classList.remove('hidden'); scRender();
   }
@@ -873,7 +936,7 @@
   $('sc-discuss').addEventListener('click', () => {
     const { top, second } = scScores();
     const lines = sc.answers.map((a, i) => `- ${SC_QUESTIONS[i].label}: ${SC_QUESTIONS[i].options[a][1]}`);
-    $('form-message').value = `Hello fuzentra team, I completed the self-check on your website.\n${lines.join('\n')}\nSuggested starting point: ${SC_SERVICES[top].name}${second ? ' (also ' + SC_SERVICES[second].name + ')' : ''}.\nI'd like to discuss next steps.`;
+    $('form-message').value = `Hello fuzentra team, I completed the self-check on your website.\n${lines.join('\n')}\nSuggested starting point: ${SC_SERVICES[top].name}${second ? ' (also ' + SC_SERVICES[second].name + ')' : ''}.\n\nInsight: ${scInsight()}\n\nI'd like to discuss next steps.`;
   });
   scRender();
 
