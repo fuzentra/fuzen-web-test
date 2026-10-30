@@ -4,6 +4,8 @@ date: 2025-12-10
 author: Feroz Ahamed
 summary: Employability has moved from qualifications to degrees, post-nominals and now public profiles. Why profiling opens doors - but performance keeps them open.
 linkedin: https://www.linkedin.com/pulse/from-degrees-profiles-new-employability-paradigm-feroz-ahamed-czrcc/
+image: assets/insights/from-degrees-to-profiles.jpg
+image_alt: A paper figure climbing a staircase of white steps on a dark background
 ---
 
 For decades, employability felt straightforward: get qualified, get a job, build a career - often within one organisation. Our parents' generation treated employability as a qualification game: earn a respected certificate or diploma, add a degree, collect post-nominals, and move upward. It worked because the world of work was predictable, hierarchical and linear. Careers followed a straight path from education → job → retirement.
