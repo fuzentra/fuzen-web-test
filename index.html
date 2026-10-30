@@ -550,13 +550,12 @@
     </div>
 
     <div class="card p-6 sm:p-8">
-      <form id="contact-form" action="https://formsubmit.co/hello@fuzentra.com" method="POST" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5" onsubmit="handleFormSubmit(event)">
-        <!-- FormSubmit settings -->
-        <input type="hidden" name="_subject" value="New message from fuzentra.com">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" id="form-next" value="https://fuzentra.com/?sent=1#contact">
-        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5" onsubmit="handleFormSubmit(event)">
+        <!-- Web3Forms settings -->
+        <input type="hidden" name="access_key" value="2f613039-6e2c-48cd-833c-52d289fa13fd">
+        <input type="hidden" name="subject" value="New enquiry from fuzentra.com">
+        <input type="hidden" name="from_name" value="fuzentra.com website">
+        <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div><label for="f-first" class="field-label">First Name</label><input id="f-first" name="First name" type="text" autocomplete="given-name" required class="field"></div>
         <div><label for="f-last" class="field-label">Last Name</label><input id="f-last" name="Last name" type="text" autocomplete="family-name" required class="field"></div>
         <div><label for="f-email" class="field-label">Email Address</label><input id="f-email" name="email" type="email" autocomplete="email" required class="field"></div>
@@ -571,7 +570,7 @@
         </div>
       </form>
       <p class="mt-4 text-xs text-slate-500">By sending this form, you agree to our <a href="privacy.html" data-privacy-popup class="underline font-semibold hover:text-brand-deep">privacy statement</a>.</p>
-      <p id="form-error" class="hidden mt-4 text-sm text-rose-600" role="alert">Sorry, your message couldn't be sent. Please try again, or email us at <a href="mailto:hello@fuzentra.com" class="underline font-semibold">hello@fuzentra.com</a>.<span id="form-error-detail" class="block mt-1 text-xs text-slate-500"></span></p>
+      <p id="form-error" class="hidden mt-4 text-sm text-rose-600" role="alert">Sorry, your message couldn't be sent. Please try again, or email us at <a href="mailto:hello@fuzentra.com" class="underline font-semibold">hello@fuzentra.com</a>. You can also reach us on <a href="https://wa.me/94766841742" target="_blank" rel="noopener" class="underline font-semibold">WhatsApp</a>.<span id="form-error-detail" class="block mt-1 text-xs text-slate-500"></span></p>
       <div id="form-success" class="hidden text-center py-6 space-y-3">
         <div class="w-12 h-12 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center mx-auto text-xl font-bold">✓</div>
         <h4 class="font-display text-xl font-bold text-ink">Message sent!</h4>
@@ -621,7 +620,7 @@
 <p class="">For visitors in the EU, UK or Switzerland, these correspond to Article 6(1)(a), (b), (c) and (f) of the GDPR and UK GDPR.</p>
 <h3 class="font-display text-lg font-bold text-ink pt-2">7. Who we share it with</h3>
 <p class="">We share personal data only with the following, and only what they need:</p>
-<ul class="list-disc pl-5 space-y-1.5"><li><strong>Service providers</strong> who process data on our behalf under contract: FormSubmit (contact form delivery), Google (Google Analytics if switched on, and Google Fonts), our email and website hosting providers.</li><li><strong>WhatsApp (Meta)</strong>, only if you choose to contact us there.</li><li><strong>Delivery partners</strong>, only when needed for a client engagement and under confidentiality obligations.</li><li><strong>Legal and regulatory authorities</strong>, when required by law or legal process, or to protect our legal rights.</li><li><strong>A buyer or successor</strong>, if our business is restructured, merged or sold, with your data kept under equivalent protection.</li></ul>
+<ul class="list-disc pl-5 space-y-1.5"><li><strong>Service providers</strong> who process data on our behalf under contract: Web3Forms (contact form delivery), Google (Google Analytics if switched on, and Google Fonts), our email and website hosting providers.</li><li><strong>WhatsApp (Meta)</strong>, only if you choose to contact us there.</li><li><strong>Delivery partners</strong>, only when needed for a client engagement and under confidentiality obligations.</li><li><strong>Legal and regulatory authorities</strong>, when required by law or legal process, or to protect our legal rights.</li><li><strong>A buyer or successor</strong>, if our business is restructured, merged or sold, with your data kept under equivalent protection.</li></ul>
 <h3 class="font-display text-lg font-bold text-ink pt-2">8. International transfers</h3>
 <p class="">Some service providers store or process data outside Sri Lanka, and outside your own country. When this happens, we use reputable providers and appropriate safeguards, as required by the PDPA and other applicable laws.</p>
 <p class="">For data from the EU, UK or Switzerland sent to a country without an adequacy decision (which currently includes Sri Lanka), we rely on recognised safeguards such as the European Commission's Standard Contractual Clauses and, for UK data, the UK International Data Transfer Addendum, or another lawful transfer mechanism.</p>
@@ -808,17 +807,11 @@
     phone.value = '+94 ' + parts.join(' ');
   });
 
-  // Form: sends via FormSubmit (https://formsubmit.co) to hello@fuzentra.com
-  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/hello@fuzentra.com';
-  // Where FormSubmit returns visitors after a standard (non-AJAX) submit
-  document.getElementById('form-next').value = location.origin + location.pathname + '?sent=1#contact';
+  // Form: sends via Web3Forms (https://web3forms.com)
+  const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
   function showSent() {
     document.getElementById('contact-form').classList.add('hidden');
     document.getElementById('form-success').classList.remove('hidden');
-  }
-  if (new URLSearchParams(location.search).get('sent') === '1') {
-    showSent();
-    history.replaceState(null, '', location.pathname + '#contact');
   }
 
   async function handleFormSubmit(e) {
@@ -830,18 +823,8 @@
     if (phone.value.trim() === '+94') phone.value = '';
     err.classList.add('hidden');
     btn.disabled = true; btnText.textContent = 'Sending…';
-    let res;
     try {
-      res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
-    } catch (netErr) {
-      // The browser blocked the background request (e.g. Safari privacy settings):
-      // send the form the standard way instead. FormSubmit brings the visitor back with ?sent=1.
-      console.warn('Background send blocked, using standard submit:', netErr.message);
-      track('generate_lead', { method: 'contact_form' });
-      HTMLFormElement.prototype.submit.call(form);
-      return;
-    }
-    try {
+      const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
       const data = await res.json().catch(() => ({ message: 'HTTP ' + res.status }));
       if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
       showSent();

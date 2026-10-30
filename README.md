@@ -23,15 +23,16 @@ Re-run `npm run build` after changing classes in `index.html` or `privacy.html`,
 All links to these files are relative, so the same files work on GitHub Pages and on fuzentra.com.
 
 ## Testing notes
-- The contact form only sends from a live site (GitHub Pages or fuzentra.com), not from a file opened locally.
+- The contact form sends from the live site (GitHub Pages or fuzentra.com). If sending fails, visitors see an inline message with the email address and a WhatsApp link.
 - Search and social previews (canonical link, `og:image`) point to fuzentra.com, so link previews only show correctly once the site is live there.
 
 ## Settings to fill in
 - **Google Analytics:** in `index.html` set `window.GA_ID = 'G-XXXXXXX'` (blank = off).
   Events: `generate_lead` (form sent), `contact_click` (whatsapp / phone / email).
   Add a cookie consent banner before switching it on (promised in the Privacy Statement for EU/UK visitors).
-- **Contact form:** FormSubmit to hello@fuzentra.com. The first live submission sends an activation
-  email; click it once. Optionally swap the address in `FORM_ENDPOINT` for FormSubmit's random alias.
+- **Contact form:** Web3Forms (https://web3forms.com, account fuzentra.lk@gmail.com, form "fuzentra-web-contact").
+  The access key is in `index.html` (`access_key`); it is public by design. Enquiries go to the email set on that form in Web3Forms.
+  If Web3Forms domain restriction is turned on, allow both `fuzentra.com` and `fuzentra.github.io`.
 - **WhatsApp:** number 94766841742 in the floating button link.
 
 ## Source
