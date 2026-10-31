@@ -174,7 +174,7 @@ function homeCards(posts) {
   if (!posts.length) {
     return `    <div class="card p-8 text-center">
       <p class="font-display text-xl font-bold text-ink">Our first articles are on the way.</p>
-      <p class="text-slate-600 mt-2">Follow <a href="https://linkedin.com/company/fuzentra" target="_blank" rel="noopener" class="text-brand-deep font-semibold underline">fuzentra on LinkedIn</a> to see them first.</p>
+      <p class="text-slate-600 mt-2">Follow <a href="https://www.linkedin.com/company/fuzentra/" target="_blank" rel="noopener" class="text-brand-deep font-semibold underline">fuzentra on LinkedIn</a> to see them first.</p>
     </div>`;
   }
   return `    <div class="swipe-row flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-pl-6 -mx-6 px-6 pb-4 md:mx-0 md:px-0 md:pb-0">
@@ -186,7 +186,7 @@ function listPage(posts) {
   const base = '../';
   const grid = posts.length
     ? `<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">\n${posts.map((p) => card(p, base)).join('\n')}\n    </div>`
-    : `<div class="card p-10 text-center"><p class="font-display text-2xl font-bold text-ink">Our first articles are on the way.</p><p class="text-slate-600 mt-2">Follow <a href="https://linkedin.com/company/fuzentra" target="_blank" rel="noopener" class="text-brand-deep font-semibold underline">fuzentra on LinkedIn</a> to see them first.</p></div>`;
+    : `<div class="card p-10 text-center"><p class="font-display text-2xl font-bold text-ink">Our first articles are on the way.</p><p class="text-slate-600 mt-2">Follow <a href="https://www.linkedin.com/company/fuzentra/" target="_blank" rel="noopener" class="text-brand-deep font-semibold underline">fuzentra on LinkedIn</a> to see them first.</p></div>`;
   const main = `<header class="relative overflow-hidden bg-[#E8F5F3] border-b border-brand/15 pt-32 pb-12 md:pt-36 md:pb-14">
   <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-24 w-96 h-96 rounded-full bg-brand/15 blur-3xl"></div>
   <div class="relative max-w-7xl mx-auto px-6">
