@@ -15,7 +15,7 @@ const OUT_DIR = path.join(ROOT, 'insights');
 
 const AUTHORS = {
   'Feroz Ahamed': { role: 'Co-Founder & Director', initials: 'FA', photo: 'assets/team-feroz.jpg', linkedin: 'https://www.linkedin.com/in/ferozahamed/' },
-  'Zahara Ansary': { role: 'Co-Founder & Director', initials: 'ZA', linkedin: 'https://www.linkedin.com/in/zahara-ansary-29b65772/' },
+  'Zahara Ansary': { role: 'Co-Founder & Director', initials: 'ZA', photo: 'assets/team-zahara.jpg', linkedin: 'https://www.linkedin.com/in/zahara-ansary-29b65772/' },
 };
 
 // ---------- helpers ----------
