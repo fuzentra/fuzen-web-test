@@ -14,7 +14,7 @@ const POSTS_DIR = path.join(ROOT, 'posts');
 const OUT_DIR = path.join(ROOT, 'insights');
 
 const AUTHORS = {
-  'Feroz Ahamed': { role: 'Co-Founder & Director', initials: 'FA', linkedin: 'https://www.linkedin.com/in/ferozahamed/' },
+  'Feroz Ahamed': { role: 'Co-Founder & Director', initials: 'FA', photo: 'assets/team-feroz.jpg', linkedin: 'https://www.linkedin.com/in/ferozahamed/' },
   'Zahara Ansary': { role: 'Co-Founder & Director', initials: 'ZA', linkedin: 'https://www.linkedin.com/in/zahara-ansary-29b65772/' },
 };
 
@@ -145,9 +145,10 @@ ${main}
 }
 
 // ---------- pieces ----------
-function authorBadge(name, size = 'sm') {
+function authorBadge(name, size = 'sm', base = '') {
   const a = AUTHORS[name] || { role: '', initials: name.split(' ').map((w) => w[0]).join('').slice(0, 2) };
   const dim = size === 'lg' ? 'w-11 h-11 text-sm' : 'w-8 h-8 text-[0.7rem]';
+  if (a.photo) return `<img src="${base}${a.photo}" alt="" width="44" height="44" loading="lazy" class="${dim} shrink-0 rounded-full object-cover bg-mist">`;
   return `<span class="${dim} shrink-0 rounded-full bg-ink text-brand font-display font-extrabold flex items-center justify-center">${esc(a.initials)}</span>`;
 }
 
@@ -163,7 +164,7 @@ function card(p, base, extra = '') {
         <h3 class="font-display text-xl font-bold text-ink mt-3 leading-snug group-hover:text-brand-deep transition"><a href="${base}insights/${p.slug}/" class="after:absolute after:inset-0">${esc(p.title)}</a></h3>
         <p class="text-slate-600 text-[0.95rem] leading-relaxed mt-2 flex-1">${esc(p.summary)}</p>
         <div class="mt-5 pt-4 border-t border-line flex items-center justify-between gap-3">
-          <span class="flex items-center gap-2 text-sm font-semibold text-ink">${authorBadge(p.author)}${esc(p.author)}</span>
+          <span class="flex items-center gap-2 text-sm font-semibold text-ink">${authorBadge(p.author, 'sm', base)}${esc(p.author)}</span>
           <span class="text-sm font-bold text-brand-deep" aria-hidden="true">Read →</span>
         </div>
       </article>`;
@@ -232,7 +233,7 @@ ${JSON.stringify({
     <h1 class="font-display text-3xl sm:text-[2.6rem] font-extrabold text-ink mt-4 leading-tight text-balance">${esc(p.title)}</h1>
     <p class="text-slate-600 mt-4 text-lg leading-relaxed">${esc(p.summary)}</p>
     <div class="mt-6 flex items-center gap-3">
-      ${authorBadge(p.author, 'lg')}
+      ${authorBadge(p.author, 'lg', base)}
       <div>
         <p class="font-semibold text-ink">${a.linkedin ? `<a href="${a.linkedin}" target="_blank" rel="noopener" class="hover:text-brand-deep">${esc(p.author)}</a>` : esc(p.author)}${a.role ? `<span class="block sm:inline font-normal text-slate-500"><span class="hidden sm:inline"> · </span>${esc(a.role)}</span>` : ''}</p>
         <p class="text-sm text-slate-500"><time datetime="${p.date}">${fmtDate(p.date)}</time> · ${p.minutes} min read</p>
